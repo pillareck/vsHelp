@@ -1,4 +1,4 @@
-﻿using DevExpress.Office.Crypto;
+using DevExpress.Office.Crypto;
 using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
@@ -27,9 +27,6 @@ namespace vsHelp
         {
             InitializeComponent();
             txtSenha.Properties.PasswordChar = '*';
-
-            // Configura o ToolTip para o campo txtBanco usando o componente toolTip1 existente.
-            toolTip1.SetToolTip(txtBanco, "Caso o banco não exista, ele será criado!");
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -93,6 +90,49 @@ namespace vsHelp
             AtualizaConexao();
         }
 
+        private async void btnTestConnection_Click(object sender, EventArgs e)
+        {
+            lblConnectionStatus.Text = "Conectando...";
+            lblConnectionStatus.ForeColor = Color.Blue;
+            cmbBanco.Enabled = false;
+            cmbBanco.Properties.Items.Clear();
+            cmbBanco.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor; // Volta ao padrão de só selecionar
+
+            try
+            {
+                List<string> bancos = await Task.Run(() => Classes.Conexao.ListarBancosDeDados(txtServidor.Text, txtPorta.Text, txtUsuario.Text, txtSenha.Text));
+
+                if (bancos != null && bancos.Any())
+                {
+                    cmbBanco.Properties.Items.AddRange(bancos);
+                    cmbBanco.Enabled = true;
+                    lblConnectionStatus.Text = "Conexão bem-sucedida! Selecione um banco.";
+                    lblConnectionStatus.ForeColor = Color.Green;
+
+                    // Se houver um banco salvo no config.ini, tente selecioná-lo
+                    string bancoSalvo = configFile.Read("Servidor", "DATABASE");
+                    if (!string.IsNullOrEmpty(bancoSalvo) && bancos.Contains(bancoSalvo))
+                    {
+                        cmbBanco.SelectedItem = bancoSalvo;
+                    }
+                }
+                else
+                {
+                    lblConnectionStatus.Text = "Conexão bem-sucedida, mas nenhum banco de dados encontrado ou permissão negada.";
+                    lblConnectionStatus.ForeColor = Color.OrangeRed;
+                    cmbBanco.Enabled = true; // Permite digitar um nome para criar
+                    cmbBanco.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard; // Permite edição para criar
+                }
+            }
+            catch (Exception ex)
+            {
+                lblConnectionStatus.Text = $"Erro de conexão: {ex.Message}";
+                lblConnectionStatus.ForeColor = Color.Red;
+                System.Diagnostics.Debug.WriteLine($"Erro no btnTestConnection_Click: {ex.Message}");
+                XtraMessageBox.Show($"Erro ao conectar ou listar bancos: {ex.Message}", "Erro de Conexão", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void txtCaminhoBackup_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode != Keys.F1) return;
@@ -121,46 +161,6 @@ namespace vsHelp
             }
         }
 
-        private void txtBanco_Leave(object sender, EventArgs e)
-        {
-            string nomeBanco = txtBanco.Text.Trim();
-
-            if (string.IsNullOrEmpty(nomeBanco))
-                return;
-
-            bool existe = Classes.Conexao.BancoExiste(txtServidor.Text, txtPorta.Text, txtUsuario.Text, txtSenha.Text, nomeBanco);
-
-            if (!existe)
-            {
-                DialogResult result = XtraMessageBox.Show(
-                    $"O banco '{nomeBanco}' não existe.\nDeseja criá-lo?",
-                    "Banco não encontrado",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question
-                );
-
-                if (result == DialogResult.Yes)
-                {
-                    bool criado = Classes.Conexao.CriarBanco(txtServidor.Text, txtPorta.Text, txtUsuario.Text, txtSenha.Text, nomeBanco);
-
-                    if (criado)
-                    {
-                        XtraMessageBox.Show($"Banco '{nomeBanco}' criado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        XtraMessageBox.Show($"Erro ao criar o banco '{nomeBanco}'.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        txtBanco.Clear();
-                    }
-                }
-                else
-                {
-                    txtBanco.Clear();
-                }
-            }
-        }
-
-
         private void btnRestaurar_Click(object sender, EventArgs e)
         {
             if (tpRestaurarBanco.Controls.OfType<TextEdit>().Any(tb => tb.Text == ""))
@@ -169,7 +169,8 @@ namespace vsHelp
                 return;
             }
 
-            string nomeBanco = txtBanco.Text.Trim();
+            // Usar o banco selecionado no cmbBanco
+            string nomeBanco = cmbBanco.Text.Trim(); 
             bool existe = Classes.Conexao.BancoExiste(txtServidor.Text, txtPorta.Text, txtUsuario.Text, txtSenha.Text, nomeBanco);
 
             if (!existe)
@@ -192,13 +193,13 @@ namespace vsHelp
                     else
                     {
                         XtraMessageBox.Show($"Erro ao criar o banco '{nomeBanco}'.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        txtBanco.Clear();
+                        cmbBanco.Text = string.Empty; // Limpa o ComboBox
                         return; // Impede a restauração se o banco não pôde ser criado
                     }
                 }
                 else
                 {
-                    txtBanco.Clear();
+                    cmbBanco.Text = string.Empty; // Limpa o ComboBox
                     return; // Impede a restauração se o usuário não quis criar o banco
                 }
             }
@@ -208,13 +209,11 @@ namespace vsHelp
                 txtCaminhoBackup.Text = Winrar.Descompacta(txtCaminhoBackup.Text);
             }
 
-            //SalvarConexao();
-
             string caminhoSql = txtCaminhoBackup.Text;
 
             new Thread(() =>
             {
-                Classes.Conexao.RestaurarBanco(txtServidor.Text, txtPorta.Text, txtUsuario.Text, txtSenha.Text, txtBanco.Text, caminhoSql, pbProgressoRestaura);
+                Classes.Conexao.RestaurarBanco(txtServidor.Text, txtPorta.Text, txtUsuario.Text, txtSenha.Text, nomeBanco, caminhoSql, pbProgressoRestaura);
 
                 try
                 {
@@ -232,7 +231,6 @@ namespace vsHelp
             }).Start();
         }
 
-
         //private void SalvarConexao()
         //{
         //    configFile.Write("Servidor", "IPSERVIDOR", txtServidor.Text);
@@ -245,16 +243,24 @@ namespace vsHelp
 
         private void AtualizaConexao()
         {
-            txtServidor.Text = configFile.Read("Servidor", "IPSERVIDOR");
-            txtPorta.Text = configFile.Read("Servidor", "PORTASERVIDOR");
-            txtUsuario.Text = configFile.Read("Servidor", "USUARIOSERVIDOR");
+            txtServidor.Text = Properties.Conexao.Default.IPSERVIDOR;
+            txtPorta.Text = Properties.Conexao.Default.PORTASERVIDOR;
+            txtUsuario.Text = Properties.Conexao.Default.USUARIOSERVIDOR;
             txtSenha.Text = Properties.Conexao.Default.Senha;
-            txtBanco.Text = configFile.Read("Servidor", "DATABASE");
+            // O campo txtBanco foi substituído por cmbBanco. 
+            // A lógica de carregamento do banco selecionado será feita após a conexão via btnTestConnection_Click
+            // txtBanco.Text = configFile.Read("Servidor", "DATABASE"); // Não ler o banco aqui
         }
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
-            Classes.Conexao.AtualizaConexao(txtServidor.Text, txtPorta.Text, txtUsuario.Text, txtSenha.Text, txtBanco.Text);
+            Classes.Conexao.AtualizaConexao(txtServidor.Text, txtPorta.Text, txtUsuario.Text, txtSenha.Text, cmbBanco.Text);
+            Properties.Conexao.Default.IPSERVIDOR = txtServidor.Text;
+            Properties.Conexao.Default.PORTASERVIDOR = txtPorta.Text;
+            Properties.Conexao.Default.USUARIOSERVIDOR = txtUsuario.Text;
+            Properties.Conexao.Default.DATABASE = cmbBanco.Text;
+            Properties.Conexao.Default.Save(); // Salvar as novas configurações
+
             Utils.AtualizarCQP(gcHomologacao.Controls.OfType<CheckEdit>().Where(c => c.Checked).OrderBy(c => c.TabIndex).ToList());
             SalvarOpcoesCQP();
         }

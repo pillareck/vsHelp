@@ -16,12 +16,12 @@ namespace vsHelp.Classes
 {
     public class Conexao
     {
-        private static IniFile config_ini = new(@"C:\Visual Software\MyCommerce\Config.ini");
-        private static string Ip = config_ini.Read("SERVIDOR", "IPSERVIDOR");
-        private static string Porta = config_ini.Read("SERVIDOR", "PORTASERVIDOR");
-        private static string Usuario = config_ini.Read("SERVIDOR", "USUARIOSERVIDOR");
+        private static IniFile config_ini = new(@"C:\Visual Software\MyCommerce\Config.ini"); // Manter, caso seja usado para outras configurações no futuro
+        private static string Ip = Properties.Conexao.Default.IPSERVIDOR;
+        private static string Porta = Properties.Conexao.Default.PORTASERVIDOR;
+        private static string Usuario = Properties.Conexao.Default.USUARIOSERVIDOR;
         private static string Senha = Properties.Conexao.Default.Senha;
-        private static string BancoDeDados = config_ini.Read("SERVIDOR", "DATABASE");
+        private static string BancoDeDados = Properties.Conexao.Default.DATABASE;
         public static MySqlConnection connection;
 
         private static Conexao instancia = new();
@@ -56,13 +56,14 @@ namespace vsHelp.Classes
 
         public static void AtualizaConexao()
         {
-            config_ini = new(@"C:\Visual Software\MyCommerce\Config.ini");
+            // Não precisa recarregar config_ini aqui, pois não o usamos para credenciais de conexão
+            // config_ini = new(@"C:\Visual Software\MyCommerce\Config.ini"); 
 
-            Ip = config_ini.Read("SERVIDOR", "IPSERVIDOR");
-            Porta = config_ini.Read("SERVIDOR", "PORTASERVIDOR");
-            Usuario = config_ini.Read("SERVIDOR", "USUARIOSERVIDOR");
+            Ip = Properties.Conexao.Default.IPSERVIDOR;
+            Porta = Properties.Conexao.Default.PORTASERVIDOR;
+            Usuario = Properties.Conexao.Default.USUARIOSERVIDOR;
             Senha = Properties.Conexao.Default.Senha;
-            BancoDeDados = config_ini.Read("SERVIDOR", "DATABASE");
+            BancoDeDados = Properties.Conexao.Default.DATABASE;
 
             instancia = new();
         }
@@ -117,6 +118,35 @@ namespace vsHelp.Classes
             {
                 return false;
             }
+        }
+
+        public static List<string> ListarBancosDeDados(string servidor, string porta, string usuario, string senha)
+        {
+            List<string> databases = new List<string>();
+            try
+            {
+                string connString = $"Server={servidor};Port={porta};User Id={usuario};Password={senha};";
+                using (MySqlConnection conn = new MySqlConnection(connString))
+                {
+                    conn.Open();
+                    MySqlCommand cmd = new MySqlCommand("SHOW DATABASES;", conn);
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            databases.Add(reader.GetString(0));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the exception for debugging purposes.
+                System.Diagnostics.Debug.WriteLine($"Erro ao listar bancos de dados: {ex.Message}");
+                // Opcionalmente, exibir uma mensagem para o usuário se este método for chamado diretamente da lógica da UI.
+                // XtraMessageBox.Show($"Erro ao listar bancos de dados: {ex.Message}", "Erro de Conexão", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return databases;
         }
 
         public static void RestaurarBanco(string servidor, string porta, string usuario, string senha, string nomeBanco, string caminho, ProgressBarControl pb)

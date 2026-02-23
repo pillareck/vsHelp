@@ -1,4 +1,4 @@
-﻿namespace vsHelp
+namespace vsHelp
 {
     partial class frmPrincipal
     {
@@ -28,678 +28,713 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
-            fccPrincipal = new DevExpress.XtraEditors.DirectXFormContainerControl();
-            tcPrincipal = new DevExpress.XtraTab.XtraTabControl();
-            tpInstalacoes = new DevExpress.XtraTab.XtraTabPage();
-            lblVersaoFullIns = new DevExpress.XtraEditors.LabelControl();
-            lblVersaoRealeseIns = new DevExpress.XtraEditors.LabelControl();
-            button1 = new DevExpress.XtraEditors.SimpleButton();
-            checkBox7 = new DevExpress.XtraEditors.CheckEdit();
-            checkBox6 = new DevExpress.XtraEditors.CheckEdit();
-            checkBox5 = new DevExpress.XtraEditors.CheckEdit();
-            checkBox4 = new DevExpress.XtraEditors.CheckEdit();
-            checkBox3 = new DevExpress.XtraEditors.CheckEdit();
-            checkBox2 = new DevExpress.XtraEditors.CheckEdit();
-            checkBox1 = new DevExpress.XtraEditors.CheckEdit();
-            tpRestaurarBanco = new DevExpress.XtraTab.XtraTabPage();
-            lblProgresso = new DevExpress.XtraEditors.LabelControl();
-            pbProgressoRestaura = new DevExpress.XtraEditors.ProgressBarControl();
-            btnRestaurar = new DevExpress.XtraEditors.SimpleButton();
-            btnProcurar = new DevExpress.XtraEditors.SimpleButton();
-            txtCaminhoBackup = new DevExpress.XtraEditors.TextEdit();
-            lblCaminhoBackup = new DevExpress.XtraEditors.LabelControl();
-            tpUpdates = new DevExpress.XtraTab.XtraTabPage();
-            gcHomologacao = new DevExpress.XtraEditors.GroupControl();
-            btnAtualizar = new DevExpress.XtraEditors.SimpleButton();
-            cbAtualizaDB = new DevExpress.XtraEditors.CheckEdit();
-            cbEmail = new DevExpress.XtraEditors.CheckEdit();
-            cbTelefone = new DevExpress.XtraEditors.CheckEdit();
-            cbSenhaSupervisor = new DevExpress.XtraEditors.CheckEdit();
-            cbSenhaUsuario = new DevExpress.XtraEditors.CheckEdit();
-            tpVersoes = new DevExpress.XtraTab.XtraTabPage();
-            lblVersaoBuild = new DevExpress.XtraEditors.LabelControl();
-            lblVersaoRelease = new DevExpress.XtraEditors.LabelControl();
-            lblVersaoFull = new DevExpress.XtraEditors.LabelControl();
-            btnVersaoBuild = new DevExpress.XtraEditors.SimpleButton();
-            btnVersaoRelease = new DevExpress.XtraEditors.SimpleButton();
-            btnVersaoFull = new DevExpress.XtraEditors.SimpleButton();
-            labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            gcConexao = new DevExpress.XtraEditors.GroupControl();
-            txtBanco = new DevExpress.XtraEditors.TextEdit();
-            lblBanco = new DevExpress.XtraEditors.LabelControl();
-            txtSenha = new DevExpress.XtraEditors.TextEdit();
-            lblSenha = new DevExpress.XtraEditors.LabelControl();
-            txtUsuario = new DevExpress.XtraEditors.TextEdit();
-            lblUsuario = new DevExpress.XtraEditors.LabelControl();
-            txtPorta = new DevExpress.XtraEditors.TextEdit();
-            lblPorta = new DevExpress.XtraEditors.LabelControl();
-            txtServidor = new DevExpress.XtraEditors.TextEdit();
-            lblServidor = new DevExpress.XtraEditors.LabelControl();
-            btnSair = new System.Windows.Forms.Button();
-            blciTemas = new DevExpress.XtraBars.BarLinkContainerItem();
-            skinDropDownButtonItem1 = new DevExpress.XtraBars.SkinDropDownButtonItem();
-            skinPaletteDropDownButtonItem1 = new DevExpress.XtraBars.SkinPaletteDropDownButtonItem();
-            skin = new DevExpress.LookAndFeel.DefaultLookAndFeel(components);
-            toolTip1 = new System.Windows.Forms.ToolTip(components);
-            fccPrincipal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)tcPrincipal).BeginInit();
-            tcPrincipal.SuspendLayout();
-            tpInstalacoes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)checkBox7.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)checkBox6.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)checkBox5.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)checkBox4.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)checkBox3.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)checkBox2.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)checkBox1.Properties).BeginInit();
-            tpRestaurarBanco.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pbProgressoRestaura.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)txtCaminhoBackup.Properties).BeginInit();
-            tpUpdates.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)gcHomologacao).BeginInit();
-            gcHomologacao.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)cbAtualizaDB.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)cbEmail.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)cbTelefone.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)cbSenhaSupervisor.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)cbSenhaUsuario.Properties).BeginInit();
-            tpVersoes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)gcConexao).BeginInit();
-            gcConexao.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)txtBanco.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)txtSenha.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)txtUsuario.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)txtPorta.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)txtServidor.Properties).BeginInit();
-            SuspendLayout();
+            this.fccPrincipal = new DevExpress.XtraEditors.DirectXFormContainerControl();
+            this.tcPrincipal = new DevExpress.XtraTab.XtraTabControl();
+            this.tpInstalacoes = new DevExpress.XtraTab.XtraTabPage();
+            this.lblVersaoFullIns = new DevExpress.XtraEditors.LabelControl();
+            this.lblVersaoRealeseIns = new DevExpress.XtraEditors.LabelControl();
+            this.button1 = new DevExpress.XtraEditors.SimpleButton();
+            this.checkBox7 = new DevExpress.XtraEditors.CheckEdit();
+            this.checkBox6 = new DevExpress.XtraEditors.CheckEdit();
+            this.checkBox5 = new DevExpress.XtraEditors.CheckEdit();
+            this.checkBox4 = new DevExpress.XtraEditors.CheckEdit();
+            this.checkBox3 = new DevExpress.XtraEditors.CheckEdit();
+            this.checkBox2 = new DevExpress.XtraEditors.CheckEdit();
+            this.checkBox1 = new DevExpress.XtraEditors.CheckEdit();
+            this.tpRestaurarBanco = new DevExpress.XtraTab.XtraTabPage();
+            this.lblProgresso = new DevExpress.XtraEditors.LabelControl();
+            this.pbProgressoRestaura = new DevExpress.XtraEditors.ProgressBarControl();
+            this.btnRestaurar = new DevExpress.XtraEditors.SimpleButton();
+            this.btnProcurar = new DevExpress.XtraEditors.SimpleButton();
+            this.txtCaminhoBackup = new DevExpress.XtraEditors.TextEdit();
+            this.lblCaminhoBackup = new DevExpress.XtraEditors.LabelControl();
+            this.tpUpdates = new DevExpress.XtraTab.XtraTabPage();
+            this.gcHomologacao = new DevExpress.XtraEditors.GroupControl();
+            this.btnAtualizar = new DevExpress.XtraEditors.SimpleButton();
+            this.cbAtualizaDB = new DevExpress.XtraEditors.CheckEdit();
+            this.cbEmail = new DevExpress.XtraEditors.CheckEdit();
+            this.cbTelefone = new DevExpress.XtraEditors.CheckEdit();
+            this.cbSenhaSupervisor = new DevExpress.XtraEditors.CheckEdit();
+            this.cbSenhaUsuario = new DevExpress.XtraEditors.CheckEdit();
+            this.tpVersoes = new DevExpress.XtraTab.XtraTabPage();
+            this.lblVersaoBuild = new DevExpress.XtraEditors.LabelControl();
+            this.lblVersaoRelease = new DevExpress.XtraEditors.LabelControl();
+            this.lblVersaoFull = new DevExpress.XtraEditors.LabelControl();
+            this.btnVersaoBuild = new DevExpress.XtraEditors.SimpleButton();
+            this.btnVersaoRelease = new DevExpress.XtraEditors.SimpleButton();
+            this.btnVersaoFull = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.gcConexao = new DevExpress.XtraEditors.GroupControl();
+            this.lblConnectionStatus = new DevExpress.XtraEditors.LabelControl();
+            this.btnTestConnection = new DevExpress.XtraEditors.SimpleButton();
+            this.cmbBanco = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.lblBanco = new DevExpress.XtraEditors.LabelControl();
+            this.txtSenha = new DevExpress.XtraEditors.TextEdit();
+            this.lblSenha = new DevExpress.XtraEditors.LabelControl();
+            this.txtUsuario = new DevExpress.XtraEditors.TextEdit();
+            this.lblUsuario = new DevExpress.XtraEditors.LabelControl();
+            this.txtPorta = new DevExpress.XtraEditors.TextEdit();
+            this.lblPorta = new DevExpress.XtraEditors.LabelControl();
+            this.txtServidor = new DevExpress.XtraEditors.TextEdit();
+            this.lblServidor = new DevExpress.XtraEditors.LabelControl();
+            this.btnSair = new System.Windows.Forms.Button();
+            this.blciTemas = new DevExpress.XtraBars.BarLinkContainerItem();
+            this.skinDropDownButtonItem1 = new DevExpress.XtraBars.SkinDropDownButtonItem();
+            this.skinPaletteDropDownButtonItem1 = new DevExpress.XtraBars.SkinPaletteDropDownButtonItem();
+            this.skin = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.fccPrincipal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tcPrincipal)).BeginInit();
+            this.tcPrincipal.SuspendLayout();
+            this.tpInstalacoes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkBox7.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkBox6.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkBox5.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkBox4.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkBox3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkBox2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkBox1.Properties)).BeginInit();
+            this.tpRestaurarBanco.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProgressoRestaura.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCaminhoBackup.Properties)).BeginInit();
+            this.tpUpdates.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcHomologacao)).BeginInit();
+            this.gcHomologacao.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbAtualizaDB.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbEmail.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbTelefone.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbSenhaSupervisor.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbSenhaUsuario.Properties)).BeginInit();
+            this.tpVersoes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcConexao)).BeginInit();
+            this.gcConexao.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbBanco.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSenha.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUsuario.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPorta.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtServidor.Properties)).BeginInit();
+            this.SuspendLayout();
             // 
             // fccPrincipal
             // 
-            fccPrincipal.Controls.Add(tcPrincipal);
-            fccPrincipal.Controls.Add(gcConexao);
-            fccPrincipal.Controls.Add(btnSair);
-            fccPrincipal.Location = new System.Drawing.Point(1, 31);
-            fccPrincipal.Margin = new System.Windows.Forms.Padding(0);
-            fccPrincipal.Name = "fccPrincipal";
-            fccPrincipal.Size = new System.Drawing.Size(815, 400);
-            fccPrincipal.TabIndex = 0;
+            this.fccPrincipal.Controls.Add(this.tcPrincipal);
+            this.fccPrincipal.Controls.Add(this.gcConexao);
+            this.fccPrincipal.Controls.Add(this.btnSair);
+            this.fccPrincipal.Location = new System.Drawing.Point(1, 31);
+            this.fccPrincipal.Margin = new System.Windows.Forms.Padding(0);
+            this.fccPrincipal.Name = "fccPrincipal";
+            this.fccPrincipal.Size = new System.Drawing.Size(815, 400);
+            this.fccPrincipal.TabIndex = 0;
             // 
             // tcPrincipal
             // 
-            tcPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            tcPrincipal.HeaderLocation = DevExpress.XtraTab.TabHeaderLocation.Left;
-            tcPrincipal.HeaderOrientation = DevExpress.XtraTab.TabOrientation.Horizontal;
-            tcPrincipal.Location = new System.Drawing.Point(0, 71);
-            tcPrincipal.Margin = new System.Windows.Forms.Padding(0);
-            tcPrincipal.MultiLine = DevExpress.Utils.DefaultBoolean.True;
-            tcPrincipal.Name = "tcPrincipal";
-            tcPrincipal.SelectedTabPage = tpInstalacoes;
-            tcPrincipal.ShowTabHeader = DevExpress.Utils.DefaultBoolean.True;
-            tcPrincipal.Size = new System.Drawing.Size(815, 329);
-            tcPrincipal.TabIndex = 4;
-            tcPrincipal.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] { tpRestaurarBanco, tpUpdates, tpVersoes, tpInstalacoes });
-            tcPrincipal.SelectedPageChanged += tcPrincipal_SelectedPageChanged;
+            this.tcPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tcPrincipal.HeaderLocation = DevExpress.XtraTab.TabHeaderLocation.Left;
+            this.tcPrincipal.HeaderOrientation = DevExpress.XtraTab.TabOrientation.Horizontal;
+            this.tcPrincipal.Location = new System.Drawing.Point(0, 95);
+            this.tcPrincipal.Margin = new System.Windows.Forms.Padding(0);
+            this.tcPrincipal.MultiLine = DevExpress.Utils.DefaultBoolean.True;
+            this.tcPrincipal.Name = "tcPrincipal";
+            this.tcPrincipal.SelectedTabPage = this.tpRestaurarBanco;
+            this.tcPrincipal.ShowTabHeader = DevExpress.Utils.DefaultBoolean.True;
+            this.tcPrincipal.Size = new System.Drawing.Size(815, 305);
+            this.tcPrincipal.TabIndex = 4;
+            this.tcPrincipal.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.tpRestaurarBanco,
+            this.tpUpdates,
+            this.tpVersoes,
+            this.tpInstalacoes});
+            this.tcPrincipal.SelectedPageChanged += new DevExpress.XtraTab.TabPageChangedEventHandler(this.tcPrincipal_SelectedPageChanged);
             // 
             // tpInstalacoes
             // 
-            tpInstalacoes.Controls.Add(lblVersaoFullIns);
-            tpInstalacoes.Controls.Add(lblVersaoRealeseIns);
-            tpInstalacoes.Controls.Add(button1);
-            tpInstalacoes.Controls.Add(checkBox7);
-            tpInstalacoes.Controls.Add(checkBox6);
-            tpInstalacoes.Controls.Add(checkBox5);
-            tpInstalacoes.Controls.Add(checkBox4);
-            tpInstalacoes.Controls.Add(checkBox3);
-            tpInstalacoes.Controls.Add(checkBox2);
-            tpInstalacoes.Controls.Add(checkBox1);
-            tpInstalacoes.ImageOptions.Image = (System.Drawing.Image)resources.GetObject("tpInstalacoes.ImageOptions.Image");
-            tpInstalacoes.Name = "tpInstalacoes";
-            tpInstalacoes.Size = new System.Drawing.Size(658, 327);
-            tpInstalacoes.Text = "&Instalações";
-            tpInstalacoes.Paint += tpInstalacoes_Paint;
+            this.tpInstalacoes.Controls.Add(this.lblVersaoFullIns);
+            this.tpInstalacoes.Controls.Add(this.lblVersaoRealeseIns);
+            this.tpInstalacoes.Controls.Add(this.button1);
+            this.tpInstalacoes.Controls.Add(this.checkBox7);
+            this.tpInstalacoes.Controls.Add(this.checkBox6);
+            this.tpInstalacoes.Controls.Add(this.checkBox5);
+            this.tpInstalacoes.Controls.Add(this.checkBox4);
+            this.tpInstalacoes.Controls.Add(this.checkBox3);
+            this.tpInstalacoes.Controls.Add(this.checkBox2);
+            this.tpInstalacoes.Controls.Add(this.checkBox1);
+            this.tpInstalacoes.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("tpInstalacoes.ImageOptions.Image")));
+            this.tpInstalacoes.Name = "tpInstalacoes";
+            this.tpInstalacoes.Size = new System.Drawing.Size(658, 303);
+            this.tpInstalacoes.Text = "&Instalações";
+            this.tpInstalacoes.Paint += new System.Windows.Forms.PaintEventHandler(this.tpInstalacoes_Paint);
             // 
             // lblVersaoFullIns
             // 
-            lblVersaoFullIns.Location = new System.Drawing.Point(279, 53);
-            lblVersaoFullIns.Name = "lblVersaoFullIns";
-            lblVersaoFullIns.Size = new System.Drawing.Size(116, 13);
-            lblVersaoFullIns.TabIndex = 10;
-            lblVersaoFullIns.Text = "Versão não encontrada!";
-            lblVersaoFullIns.Click += lblVersaoFullIns_Click;
+            this.lblVersaoFullIns.Location = new System.Drawing.Point(279, 53);
+            this.lblVersaoFullIns.Name = "lblVersaoFullIns";
+            this.lblVersaoFullIns.Size = new System.Drawing.Size(116, 13);
+            this.lblVersaoFullIns.TabIndex = 10;
+            this.lblVersaoFullIns.Text = "Versão não encontrada!";
+            this.lblVersaoFullIns.Click += new System.EventHandler(this.lblVersaoFullIns_Click);
             // 
             // lblVersaoRealeseIns
             // 
-            lblVersaoRealeseIns.Location = new System.Drawing.Point(279, 30);
-            lblVersaoRealeseIns.Name = "lblVersaoRealeseIns";
-            lblVersaoRealeseIns.Size = new System.Drawing.Size(116, 13);
-            lblVersaoRealeseIns.TabIndex = 9;
-            lblVersaoRealeseIns.Text = "Versão não encontrada!";
-            lblVersaoRealeseIns.Click += lblVersaoRealeseIns_Click;
+            this.lblVersaoRealeseIns.Location = new System.Drawing.Point(279, 30);
+            this.lblVersaoRealeseIns.Name = "lblVersaoRealeseIns";
+            this.lblVersaoRealeseIns.Size = new System.Drawing.Size(116, 13);
+            this.lblVersaoRealeseIns.TabIndex = 9;
+            this.lblVersaoRealeseIns.Text = "Versão não encontrada!";
+            this.lblVersaoRealeseIns.Click += new System.EventHandler(this.lblVersaoRealeseIns_Click);
             // 
             // button1
             // 
-            button1.Location = new System.Drawing.Point(204, 186);
-            button1.Name = "button1";
-            button1.Size = new System.Drawing.Size(132, 28);
-            button1.TabIndex = 7;
-            button1.Text = "Gerar Link";
-            button1.Click += button1_Click;
+            this.button1.Location = new System.Drawing.Point(204, 186);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(132, 28);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Gerar Link";
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // checkBox7
             // 
-            checkBox7.Location = new System.Drawing.Point(57, 122);
-            checkBox7.Name = "checkBox7";
-            checkBox7.Properties.Caption = "RustDesk";
-            checkBox7.Size = new System.Drawing.Size(71, 20);
-            checkBox7.TabIndex = 6;
-            checkBox7.CheckedChanged += checkBox7_CheckedChanged;
+            this.checkBox7.Location = new System.Drawing.Point(57, 122);
+            this.checkBox7.Name = "checkBox7";
+            this.checkBox7.Properties.Caption = "RustDesk";
+            this.checkBox7.Size = new System.Drawing.Size(71, 20);
+            this.checkBox7.TabIndex = 6;
+            this.checkBox7.CheckedChanged += new System.EventHandler(this.checkBox7_CheckedChanged);
             // 
             // checkBox6
             // 
-            checkBox6.Location = new System.Drawing.Point(57, 99);
-            checkBox6.Name = "checkBox6";
-            checkBox6.Properties.Caption = "EditPadPro";
-            checkBox6.Size = new System.Drawing.Size(78, 20);
-            checkBox6.TabIndex = 5;
-            checkBox6.CheckedChanged += checkBox6_CheckedChanged;
+            this.checkBox6.Location = new System.Drawing.Point(57, 99);
+            this.checkBox6.Name = "checkBox6";
+            this.checkBox6.Properties.Caption = "EditPadPro";
+            this.checkBox6.Size = new System.Drawing.Size(78, 20);
+            this.checkBox6.TabIndex = 5;
+            this.checkBox6.CheckedChanged += new System.EventHandler(this.checkBox6_CheckedChanged);
             // 
             // checkBox5
             // 
-            checkBox5.Location = new System.Drawing.Point(57, 145);
-            checkBox5.Name = "checkBox5";
-            checkBox5.Properties.Caption = "MariaDB";
-            checkBox5.Size = new System.Drawing.Size(65, 20);
-            checkBox5.TabIndex = 4;
-            checkBox5.CheckedChanged += checkBox5_CheckedChanged;
+            this.checkBox5.Location = new System.Drawing.Point(57, 145);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Properties.Caption = "MariaDB";
+            this.checkBox5.Size = new System.Drawing.Size(65, 20);
+            this.checkBox5.TabIndex = 4;
+            this.checkBox5.CheckedChanged += new System.EventHandler(this.checkBox5_CheckedChanged);
             // 
             // checkBox4
             // 
-            checkBox4.Location = new System.Drawing.Point(57, 30);
-            checkBox4.Name = "checkBox4";
-            checkBox4.Properties.Caption = "MyCommerce Versão";
-            checkBox4.Size = new System.Drawing.Size(126, 20);
-            checkBox4.TabIndex = 3;
-            checkBox4.CheckedChanged += checkBox4_CheckedChanged;
+            this.checkBox4.Location = new System.Drawing.Point(57, 30);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Properties.Caption = "MyCommerce Versão";
+            this.checkBox4.Size = new System.Drawing.Size(126, 20);
+            this.checkBox4.TabIndex = 3;
+            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
             // 
             // checkBox3
             // 
-            checkBox3.Location = new System.Drawing.Point(57, 53);
-            checkBox3.Name = "checkBox3";
-            checkBox3.Properties.Caption = "MyCommerce Full";
-            checkBox3.Size = new System.Drawing.Size(109, 20);
-            checkBox3.TabIndex = 2;
-            checkBox3.CheckedChanged += checkBox3_CheckedChanged;
+            this.checkBox3.Location = new System.Drawing.Point(57, 53);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Properties.Caption = "MyCommerce Full";
+            this.checkBox3.Size = new System.Drawing.Size(109, 20);
+            this.checkBox3.TabIndex = 2;
+            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
             // 
             // checkBox2
             // 
-            checkBox2.Location = new System.Drawing.Point(57, 76);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Properties.Caption = "Crystal Reports";
-            checkBox2.Size = new System.Drawing.Size(101, 20);
-            checkBox2.TabIndex = 1;
-            checkBox2.CheckedChanged += checkBox2_CheckedChanged;
+            this.checkBox2.Location = new System.Drawing.Point(57, 76);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Properties.Caption = "Crystal Reports";
+            this.checkBox2.Size = new System.Drawing.Size(101, 20);
+            this.checkBox2.TabIndex = 1;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // checkBox1
             // 
-            checkBox1.Location = new System.Drawing.Point(57, 168);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Properties.Caption = "Fontes";
-            checkBox1.Size = new System.Drawing.Size(59, 20);
-            checkBox1.TabIndex = 0;
-            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
+            this.checkBox1.Location = new System.Drawing.Point(57, 168);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Properties.Caption = "Fontes";
+            this.checkBox1.Size = new System.Drawing.Size(59, 20);
+            this.checkBox1.TabIndex = 0;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // tpRestaurarBanco
             // 
-            tpRestaurarBanco.Controls.Add(lblProgresso);
-            tpRestaurarBanco.Controls.Add(pbProgressoRestaura);
-            tpRestaurarBanco.Controls.Add(btnRestaurar);
-            tpRestaurarBanco.Controls.Add(btnProcurar);
-            tpRestaurarBanco.Controls.Add(txtCaminhoBackup);
-            tpRestaurarBanco.Controls.Add(lblCaminhoBackup);
-            tpRestaurarBanco.ImageOptions.Image = Properties.Resources.database_16x16;
-            tpRestaurarBanco.Name = "tpRestaurarBanco";
-            tpRestaurarBanco.Size = new System.Drawing.Size(658, 327);
-            tpRestaurarBanco.Text = "Restaurar &Backup";
+            this.tpRestaurarBanco.Controls.Add(this.lblProgresso);
+            this.tpRestaurarBanco.Controls.Add(this.pbProgressoRestaura);
+            this.tpRestaurarBanco.Controls.Add(this.btnRestaurar);
+            this.tpRestaurarBanco.Controls.Add(this.btnProcurar);
+            this.tpRestaurarBanco.Controls.Add(this.txtCaminhoBackup);
+            this.tpRestaurarBanco.Controls.Add(this.lblCaminhoBackup);
+            this.tpRestaurarBanco.ImageOptions.Image = global::vsHelp.Properties.Resources.database_16x16;
+            this.tpRestaurarBanco.Name = "tpRestaurarBanco";
+            this.tpRestaurarBanco.Size = new System.Drawing.Size(658, 303);
+            this.tpRestaurarBanco.Text = "Restaurar &Backup";
             // 
             // lblProgresso
             // 
-            lblProgresso.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            lblProgresso.Appearance.Options.UseFont = true;
-            lblProgresso.Location = new System.Drawing.Point(87, 237);
-            lblProgresso.Name = "lblProgresso";
-            lblProgresso.Size = new System.Drawing.Size(197, 13);
-            lblProgresso.TabIndex = 5;
-            lblProgresso.Text = "Barra de progresso da restauração";
+            this.lblProgresso.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lblProgresso.Appearance.Options.UseFont = true;
+            this.lblProgresso.Location = new System.Drawing.Point(87, 237);
+            this.lblProgresso.Name = "lblProgresso";
+            this.lblProgresso.Size = new System.Drawing.Size(197, 13);
+            this.lblProgresso.TabIndex = 5;
+            this.lblProgresso.Text = "Barra de progresso da restauração";
             // 
             // pbProgressoRestaura
             // 
-            pbProgressoRestaura.Location = new System.Drawing.Point(87, 256);
-            pbProgressoRestaura.Name = "pbProgressoRestaura";
-            pbProgressoRestaura.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            pbProgressoRestaura.Size = new System.Drawing.Size(481, 43);
-            pbProgressoRestaura.TabIndex = 4;
+            this.pbProgressoRestaura.Location = new System.Drawing.Point(87, 256);
+            this.pbProgressoRestaura.Name = "pbProgressoRestaura";
+            this.pbProgressoRestaura.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.pbProgressoRestaura.Size = new System.Drawing.Size(481, 43);
+            this.pbProgressoRestaura.TabIndex = 4;
             // 
             // btnRestaurar
             // 
-            btnRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnRestaurar.Location = new System.Drawing.Point(439, 38);
-            btnRestaurar.Name = "btnRestaurar";
-            btnRestaurar.Size = new System.Drawing.Size(129, 39);
-            btnRestaurar.TabIndex = 12;
-            btnRestaurar.Text = "&Restaurar";
-            btnRestaurar.Click += btnRestaurar_Click;
+            this.btnRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRestaurar.Location = new System.Drawing.Point(439, 38);
+            this.btnRestaurar.Name = "btnRestaurar";
+            this.btnRestaurar.Size = new System.Drawing.Size(129, 39);
+            this.btnRestaurar.TabIndex = 12;
+            this.btnRestaurar.Text = "&Restaurar";
+            this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
             // 
             // btnProcurar
             // 
-            btnProcurar.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnProcurar.ImageOptions.Image = Properties.Resources.find_16x16;
-            btnProcurar.Location = new System.Drawing.Point(350, 48);
-            btnProcurar.Name = "btnProcurar";
-            btnProcurar.Size = new System.Drawing.Size(20, 20);
-            btnProcurar.TabIndex = 11;
-            btnProcurar.Click += btnProcurar_Click;
+            this.btnProcurar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProcurar.ImageOptions.Image = global::vsHelp.Properties.Resources.find_16x16;
+            this.btnProcurar.Location = new System.Drawing.Point(350, 48);
+            this.btnProcurar.Name = "btnProcurar";
+            this.btnProcurar.Size = new System.Drawing.Size(20, 20);
+            this.btnProcurar.TabIndex = 11;
+            this.btnProcurar.Click += new System.EventHandler(this.btnProcurar_Click);
             // 
             // txtCaminhoBackup
             // 
-            txtCaminhoBackup.EnterMoveNextControl = true;
-            txtCaminhoBackup.Location = new System.Drawing.Point(35, 48);
-            txtCaminhoBackup.Name = "txtCaminhoBackup";
-            txtCaminhoBackup.Properties.ReadOnly = true;
-            txtCaminhoBackup.Size = new System.Drawing.Size(293, 20);
-            txtCaminhoBackup.TabIndex = 5;
-            txtCaminhoBackup.KeyDown += txtCaminhoBackup_KeyDown;
+            this.txtCaminhoBackup.EnterMoveNextControl = true;
+            this.txtCaminhoBackup.Location = new System.Drawing.Point(35, 48);
+            this.txtCaminhoBackup.Name = "txtCaminhoBackup";
+            this.txtCaminhoBackup.Properties.ReadOnly = true;
+            this.txtCaminhoBackup.Size = new System.Drawing.Size(293, 20);
+            this.txtCaminhoBackup.TabIndex = 5;
+            this.txtCaminhoBackup.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCaminhoBackup_KeyDown);
             // 
             // lblCaminhoBackup
             // 
-            lblCaminhoBackup.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            lblCaminhoBackup.Appearance.Options.UseFont = true;
-            lblCaminhoBackup.Location = new System.Drawing.Point(35, 29);
-            lblCaminhoBackup.Name = "lblCaminhoBackup";
-            lblCaminhoBackup.Size = new System.Drawing.Size(110, 13);
-            lblCaminhoBackup.TabIndex = 0;
-            lblCaminhoBackup.Text = "Caminho do backup";
+            this.lblCaminhoBackup.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lblCaminhoBackup.Appearance.Options.UseFont = true;
+            this.lblCaminhoBackup.Location = new System.Drawing.Point(35, 29);
+            this.lblCaminhoBackup.Name = "lblCaminhoBackup";
+            this.lblCaminhoBackup.Size = new System.Drawing.Size(110, 13);
+            this.lblCaminhoBackup.TabIndex = 0;
+            this.lblCaminhoBackup.Text = "Caminho do backup";
             // 
             // tpUpdates
             // 
-            tpUpdates.Controls.Add(gcHomologacao);
-            tpUpdates.ImageOptions.SvgImage = Properties.Resources.update;
-            tpUpdates.Name = "tpUpdates";
-            tpUpdates.Size = new System.Drawing.Size(658, 327);
-            tpUpdates.Text = "&Updates";
+            this.tpUpdates.Controls.Add(this.gcHomologacao);
+            this.tpUpdates.ImageOptions.SvgImage = global::vsHelp.Properties.Resources.update;
+            this.tpUpdates.Name = "tpUpdates";
+            this.tpUpdates.Size = new System.Drawing.Size(658, 303);
+            this.tpUpdates.Text = "&Updates";
             // 
             // gcHomologacao
             // 
-            gcHomologacao.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            gcHomologacao.AppearanceCaption.Options.UseFont = true;
-            gcHomologacao.Controls.Add(btnAtualizar);
-            gcHomologacao.Controls.Add(cbAtualizaDB);
-            gcHomologacao.Controls.Add(cbEmail);
-            gcHomologacao.Controls.Add(cbTelefone);
-            gcHomologacao.Controls.Add(cbSenhaSupervisor);
-            gcHomologacao.Controls.Add(cbSenhaUsuario);
-            gcHomologacao.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            gcHomologacao.Location = new System.Drawing.Point(18, 6);
-            gcHomologacao.Name = "gcHomologacao";
-            gcHomologacao.Size = new System.Drawing.Size(325, 259);
-            gcHomologacao.TabIndex = 0;
-            gcHomologacao.Text = "Atualizar para Homologação";
+            this.gcHomologacao.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.gcHomologacao.AppearanceCaption.Options.UseFont = true;
+            this.gcHomologacao.Controls.Add(this.btnAtualizar);
+            this.gcHomologacao.Controls.Add(this.cbAtualizaDB);
+            this.gcHomologacao.Controls.Add(this.cbEmail);
+            this.gcHomologacao.Controls.Add(this.cbTelefone);
+            this.gcHomologacao.Controls.Add(this.cbSenhaSupervisor);
+            this.gcHomologacao.Controls.Add(this.cbSenhaUsuario);
+            this.gcHomologacao.GroupStyle = DevExpress.Utils.GroupStyle.Light;
+            this.gcHomologacao.Location = new System.Drawing.Point(18, 6);
+            this.gcHomologacao.Name = "gcHomologacao";
+            this.gcHomologacao.Size = new System.Drawing.Size(325, 259);
+            this.gcHomologacao.TabIndex = 0;
+            this.gcHomologacao.Text = "Atualizar para Homologação";
             // 
             // btnAtualizar
             // 
-            btnAtualizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnAtualizar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            btnAtualizar.Location = new System.Drawing.Point(2, 225);
-            btnAtualizar.Name = "btnAtualizar";
-            btnAtualizar.Size = new System.Drawing.Size(321, 32);
-            btnAtualizar.TabIndex = 5;
-            btnAtualizar.Text = "&Atualizar";
-            btnAtualizar.Click += btnAtualizar_Click;
+            this.btnAtualizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAtualizar.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnAtualizar.Location = new System.Drawing.Point(2, 225);
+            this.btnAtualizar.Name = "btnAtualizar";
+            this.btnAtualizar.Size = new System.Drawing.Size(321, 32);
+            this.btnAtualizar.TabIndex = 5;
+            this.btnAtualizar.Text = "&Atualizar";
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // cbAtualizaDB
             // 
-            cbAtualizaDB.Location = new System.Drawing.Point(5, 130);
-            cbAtualizaDB.Name = "cbAtualizaDB";
-            cbAtualizaDB.Properties.Caption = "Rodar AtualizaDB";
-            cbAtualizaDB.Size = new System.Drawing.Size(124, 20);
-            cbAtualizaDB.TabIndex = 4;
+            this.cbAtualizaDB.Location = new System.Drawing.Point(5, 130);
+            this.cbAtualizaDB.Name = "cbAtualizaDB";
+            this.cbAtualizaDB.Properties.Caption = "Rodar AtualizaDB";
+            this.cbAtualizaDB.Size = new System.Drawing.Size(124, 20);
+            this.cbAtualizaDB.TabIndex = 4;
             // 
             // cbEmail
             // 
-            cbEmail.Location = new System.Drawing.Point(5, 104);
-            cbEmail.Name = "cbEmail";
-            cbEmail.Properties.Caption = "Emails = vscsqp.visualsoftware@gmail.com";
-            cbEmail.Size = new System.Drawing.Size(234, 20);
-            cbEmail.TabIndex = 3;
+            this.cbEmail.Location = new System.Drawing.Point(5, 104);
+            this.cbEmail.Name = "cbEmail";
+            this.cbEmail.Properties.Caption = "Emails = vscsqp.visualsoftware@gmail.com";
+            this.cbEmail.Size = new System.Drawing.Size(234, 20);
+            this.cbEmail.TabIndex = 3;
             // 
             // cbTelefone
             // 
-            cbTelefone.Location = new System.Drawing.Point(5, 78);
-            cbTelefone.Name = "cbTelefone";
-            cbTelefone.Properties.Caption = "Telefones = (99) 99999-9999";
-            cbTelefone.Size = new System.Drawing.Size(170, 20);
-            cbTelefone.TabIndex = 2;
+            this.cbTelefone.Location = new System.Drawing.Point(5, 78);
+            this.cbTelefone.Name = "cbTelefone";
+            this.cbTelefone.Properties.Caption = "Telefones = (99) 99999-9999";
+            this.cbTelefone.Size = new System.Drawing.Size(170, 20);
+            this.cbTelefone.TabIndex = 2;
             // 
             // cbSenhaSupervisor
             // 
-            cbSenhaSupervisor.Location = new System.Drawing.Point(5, 52);
-            cbSenhaSupervisor.Name = "cbSenhaSupervisor";
-            cbSenhaSupervisor.Properties.Caption = "Senha Supervisores = 1";
-            cbSenhaSupervisor.Size = new System.Drawing.Size(162, 20);
-            cbSenhaSupervisor.TabIndex = 1;
+            this.cbSenhaSupervisor.Location = new System.Drawing.Point(5, 52);
+            this.cbSenhaSupervisor.Name = "cbSenhaSupervisor";
+            this.cbSenhaSupervisor.Properties.Caption = "Senha Supervisores = 1";
+            this.cbSenhaSupervisor.Size = new System.Drawing.Size(162, 20);
+            this.cbSenhaSupervisor.TabIndex = 1;
             // 
             // cbSenhaUsuario
             // 
-            cbSenhaUsuario.Location = new System.Drawing.Point(5, 26);
-            cbSenhaUsuario.Name = "cbSenhaUsuario";
-            cbSenhaUsuario.Properties.Caption = "Senha Usuários = 1";
-            cbSenhaUsuario.Size = new System.Drawing.Size(124, 20);
-            cbSenhaUsuario.TabIndex = 0;
+            this.cbSenhaUsuario.Location = new System.Drawing.Point(5, 26);
+            this.cbSenhaUsuario.Name = "cbSenhaUsuario";
+            this.cbSenhaUsuario.Properties.Caption = "Senha Usuários = 1";
+            this.cbSenhaUsuario.Size = new System.Drawing.Size(124, 20);
+            this.cbSenhaUsuario.TabIndex = 0;
             // 
             // tpVersoes
             // 
-            tpVersoes.Controls.Add(lblVersaoBuild);
-            tpVersoes.Controls.Add(lblVersaoRelease);
-            tpVersoes.Controls.Add(lblVersaoFull);
-            tpVersoes.Controls.Add(btnVersaoBuild);
-            tpVersoes.Controls.Add(btnVersaoRelease);
-            tpVersoes.Controls.Add(btnVersaoFull);
-            tpVersoes.Controls.Add(labelControl3);
-            tpVersoes.Controls.Add(labelControl2);
-            tpVersoes.Controls.Add(labelControl1);
-            tpVersoes.ImageOptions.SvgImage = Properties.Resources.insertlistbox;
-            tpVersoes.Name = "tpVersoes";
-            tpVersoes.Size = new System.Drawing.Size(658, 327);
-            tpVersoes.Text = "&Versões MyCommerce";
+            this.tpVersoes.Controls.Add(this.lblVersaoBuild);
+            this.tpVersoes.Controls.Add(this.lblVersaoRelease);
+            this.tpVersoes.Controls.Add(this.lblVersaoFull);
+            this.tpVersoes.Controls.Add(this.btnVersaoBuild);
+            this.tpVersoes.Controls.Add(this.btnVersaoRelease);
+            this.tpVersoes.Controls.Add(this.btnVersaoFull);
+            this.tpVersoes.Controls.Add(this.labelControl3);
+            this.tpVersoes.Controls.Add(this.labelControl2);
+            this.tpVersoes.Controls.Add(this.labelControl1);
+            this.tpVersoes.ImageOptions.SvgImage = global::vsHelp.Properties.Resources.insertlistbox;
+            this.tpVersoes.Name = "tpVersoes";
+            this.tpVersoes.Size = new System.Drawing.Size(658, 303);
+            this.tpVersoes.Text = "&Versões MyCommerce";
             // 
             // lblVersaoBuild
             // 
-            lblVersaoBuild.Location = new System.Drawing.Point(270, 151);
-            lblVersaoBuild.Name = "lblVersaoBuild";
-            lblVersaoBuild.Size = new System.Drawing.Size(116, 13);
-            lblVersaoBuild.TabIndex = 8;
-            lblVersaoBuild.Text = "Versão não encontrada!";
+            this.lblVersaoBuild.Location = new System.Drawing.Point(270, 151);
+            this.lblVersaoBuild.Name = "lblVersaoBuild";
+            this.lblVersaoBuild.Size = new System.Drawing.Size(116, 13);
+            this.lblVersaoBuild.TabIndex = 8;
+            this.lblVersaoBuild.Text = "Versão não encontrada!";
             // 
             // lblVersaoRelease
             // 
-            lblVersaoRelease.Location = new System.Drawing.Point(270, 84);
-            lblVersaoRelease.Name = "lblVersaoRelease";
-            lblVersaoRelease.Size = new System.Drawing.Size(116, 13);
-            lblVersaoRelease.TabIndex = 7;
-            lblVersaoRelease.Text = "Versão não encontrada!";
+            this.lblVersaoRelease.Location = new System.Drawing.Point(270, 84);
+            this.lblVersaoRelease.Name = "lblVersaoRelease";
+            this.lblVersaoRelease.Size = new System.Drawing.Size(116, 13);
+            this.lblVersaoRelease.TabIndex = 7;
+            this.lblVersaoRelease.Text = "Versão não encontrada!";
             // 
             // lblVersaoFull
             // 
-            lblVersaoFull.Location = new System.Drawing.Point(270, 17);
-            lblVersaoFull.Name = "lblVersaoFull";
-            lblVersaoFull.Size = new System.Drawing.Size(116, 13);
-            lblVersaoFull.TabIndex = 6;
-            lblVersaoFull.Text = "Versão não encontrada!";
+            this.lblVersaoFull.Location = new System.Drawing.Point(270, 17);
+            this.lblVersaoFull.Name = "lblVersaoFull";
+            this.lblVersaoFull.Size = new System.Drawing.Size(116, 13);
+            this.lblVersaoFull.TabIndex = 6;
+            this.lblVersaoFull.Text = "Versão não encontrada!";
             // 
             // btnVersaoBuild
             // 
-            btnVersaoBuild.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnVersaoBuild.Location = new System.Drawing.Point(18, 179);
-            btnVersaoBuild.Name = "btnVersaoBuild";
-            btnVersaoBuild.Size = new System.Drawing.Size(368, 29);
-            btnVersaoBuild.TabIndex = 5;
-            btnVersaoBuild.Text = "Copiar para área de trabalho";
-            btnVersaoBuild.Click += btnVersaoBuild_Click;
+            this.btnVersaoBuild.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVersaoBuild.Location = new System.Drawing.Point(18, 179);
+            this.btnVersaoBuild.Name = "btnVersaoBuild";
+            this.btnVersaoBuild.Size = new System.Drawing.Size(368, 29);
+            this.btnVersaoBuild.TabIndex = 5;
+            this.btnVersaoBuild.Text = "Copiar para área de trabalho";
+            this.btnVersaoBuild.Click += new System.EventHandler(this.btnVersaoBuild_Click);
             // 
             // btnVersaoRelease
             // 
-            btnVersaoRelease.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnVersaoRelease.Location = new System.Drawing.Point(17, 106);
-            btnVersaoRelease.Name = "btnVersaoRelease";
-            btnVersaoRelease.Size = new System.Drawing.Size(368, 29);
-            btnVersaoRelease.TabIndex = 4;
-            btnVersaoRelease.Text = "Copiar para área de trabalho";
-            btnVersaoRelease.Click += btnVersaoRelease_Click;
+            this.btnVersaoRelease.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVersaoRelease.Location = new System.Drawing.Point(17, 106);
+            this.btnVersaoRelease.Name = "btnVersaoRelease";
+            this.btnVersaoRelease.Size = new System.Drawing.Size(368, 29);
+            this.btnVersaoRelease.TabIndex = 4;
+            this.btnVersaoRelease.Text = "Copiar para área de trabalho";
+            this.btnVersaoRelease.Click += new System.EventHandler(this.btnVersaoRelease_Click);
             // 
             // btnVersaoFull
             // 
-            btnVersaoFull.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnVersaoFull.Location = new System.Drawing.Point(17, 39);
-            btnVersaoFull.Name = "btnVersaoFull";
-            btnVersaoFull.Size = new System.Drawing.Size(369, 29);
-            btnVersaoFull.TabIndex = 3;
-            btnVersaoFull.Text = "Copiar para área de trabalho";
-            btnVersaoFull.Click += btnVersaoFull_Click;
+            this.btnVersaoFull.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVersaoFull.Location = new System.Drawing.Point(17, 39);
+            this.btnVersaoFull.Name = "btnVersaoFull";
+            this.btnVersaoFull.Size = new System.Drawing.Size(369, 29);
+            this.btnVersaoFull.TabIndex = 3;
+            this.btnVersaoFull.Text = "Copiar para área de trabalho";
+            this.btnVersaoFull.Click += new System.EventHandler(this.btnVersaoFull_Click);
             // 
             // labelControl3
             // 
-            labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            labelControl3.Appearance.Options.UseFont = true;
-            labelControl3.Location = new System.Drawing.Point(17, 148);
-            labelControl3.Name = "labelControl3";
-            labelControl3.Size = new System.Drawing.Size(208, 16);
-            labelControl3.TabIndex = 2;
-            labelControl3.Text = "Última versão BUILD encontrada";
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.labelControl3.Appearance.Options.UseFont = true;
+            this.labelControl3.Location = new System.Drawing.Point(17, 148);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(208, 16);
+            this.labelControl3.TabIndex = 2;
+            this.labelControl3.Text = "Última versão BUILD encontrada";
             // 
             // labelControl2
             // 
-            labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            labelControl2.Appearance.Options.UseFont = true;
-            labelControl2.Location = new System.Drawing.Point(17, 84);
-            labelControl2.Name = "labelControl2";
-            labelControl2.Size = new System.Drawing.Size(226, 16);
-            labelControl2.TabIndex = 1;
-            labelControl2.Text = "Última versão RELEASE encontrada";
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.labelControl2.Appearance.Options.UseFont = true;
+            this.labelControl2.Location = new System.Drawing.Point(17, 84);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(226, 16);
+            this.labelControl2.TabIndex = 1;
+            this.labelControl2.Text = "Última versão RELEASE encontrada";
             // 
             // labelControl1
             // 
-            labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            labelControl1.Appearance.Options.UseFont = true;
-            labelControl1.Location = new System.Drawing.Point(17, 17);
-            labelControl1.Name = "labelControl1";
-            labelControl1.Size = new System.Drawing.Size(199, 16);
-            labelControl1.TabIndex = 0;
-            labelControl1.Text = "Última versão FULL encontrada";
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Location = new System.Drawing.Point(17, 17);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(199, 16);
+            this.labelControl1.TabIndex = 0;
+            this.labelControl1.Text = "Última versão FULL encontrada";
             // 
             // gcConexao
             // 
-            gcConexao.Controls.Add(txtBanco);
-            gcConexao.Controls.Add(lblBanco);
-            gcConexao.Controls.Add(txtSenha);
-            gcConexao.Controls.Add(lblSenha);
-            gcConexao.Controls.Add(txtUsuario);
-            gcConexao.Controls.Add(lblUsuario);
-            gcConexao.Controls.Add(txtPorta);
-            gcConexao.Controls.Add(lblPorta);
-            gcConexao.Controls.Add(txtServidor);
-            gcConexao.Controls.Add(lblServidor);
-            gcConexao.Dock = System.Windows.Forms.DockStyle.Top;
-            gcConexao.GroupStyle = DevExpress.Utils.GroupStyle.Card;
-            gcConexao.Location = new System.Drawing.Point(0, 0);
-            gcConexao.Margin = new System.Windows.Forms.Padding(0);
-            gcConexao.Name = "gcConexao";
-            gcConexao.Size = new System.Drawing.Size(815, 71);
-            gcConexao.TabIndex = 3;
-            gcConexao.Text = "Conexão MyCommerce";
+            this.gcConexao.Controls.Add(this.lblConnectionStatus);
+            this.gcConexao.Controls.Add(this.btnTestConnection);
+            this.gcConexao.Controls.Add(this.cmbBanco);
+            this.gcConexao.Controls.Add(this.lblBanco);
+            this.gcConexao.Controls.Add(this.txtSenha);
+            this.gcConexao.Controls.Add(this.lblSenha);
+            this.gcConexao.Controls.Add(this.txtUsuario);
+            this.gcConexao.Controls.Add(this.lblUsuario);
+            this.gcConexao.Controls.Add(this.txtPorta);
+            this.gcConexao.Controls.Add(this.lblPorta);
+            this.gcConexao.Controls.Add(this.txtServidor);
+            this.gcConexao.Controls.Add(this.lblServidor);
+            this.gcConexao.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gcConexao.GroupStyle = DevExpress.Utils.GroupStyle.Card;
+            this.gcConexao.Location = new System.Drawing.Point(0, 0);
+            this.gcConexao.Name = "gcConexao";
+            this.gcConexao.Size = new System.Drawing.Size(815, 95);
+            this.gcConexao.TabIndex = 3;
+            this.gcConexao.Text = "Conexão MyCommerce";
             // 
-            // txtBanco
+            // lblConnectionStatus
             // 
-            txtBanco.EnterMoveNextControl = true;
-            txtBanco.Location = new System.Drawing.Point(653, 32);
-            txtBanco.Name = "txtBanco";
-            txtBanco.Size = new System.Drawing.Size(118, 20);
-            txtBanco.TabIndex = 9;
+            this.lblConnectionStatus.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            this.lblConnectionStatus.Appearance.Options.UseFont = true;
+            this.lblConnectionStatus.Appearance.ForeColor = System.Drawing.Color.Blue;
+            this.lblConnectionStatus.Location = new System.Drawing.Point(240, 61);
+            this.lblConnectionStatus.Name = "lblConnectionStatus";
+            this.lblConnectionStatus.Size = new System.Drawing.Size(0, 13);
+            this.lblConnectionStatus.TabIndex = 10;
+            // 
+            // btnTestConnection
+            // 
+            this.btnTestConnection.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTestConnection.ImageOptions.Image = global::vsHelp.Properties.Resources.solution_16x16;
+            this.btnTestConnection.Location = new System.Drawing.Point(600, 30);
+            this.btnTestConnection.Name = "btnTestConnection";
+            this.btnTestConnection.Size = new System.Drawing.Size(80, 23);
+            this.btnTestConnection.TabIndex = 4;
+            this.btnTestConnection.Text = "Conectar";
+            this.btnTestConnection.Click += new System.EventHandler(this.btnTestConnection_Click);
+            // 
+            // cmbBanco
+            // 
+            this.cmbBanco.EnterMoveNextControl = true;
+            this.cmbBanco.Location = new System.Drawing.Point(69, 58);
+            this.cmbBanco.Name = "cmbBanco";
+            this.cmbBanco.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbBanco.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard; // Permite digitação por padrão
+            this.cmbBanco.Size = new System.Drawing.Size(156, 20);
+            this.cmbBanco.TabIndex = 5;
             // 
             // lblBanco
             // 
-            lblBanco.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            lblBanco.Appearance.Options.UseFont = true;
-            lblBanco.Location = new System.Drawing.Point(610, 35);
-            lblBanco.Name = "lblBanco";
-            lblBanco.Size = new System.Drawing.Size(37, 13);
-            lblBanco.TabIndex = 8;
-            lblBanco.Text = "Banco:";
+            this.lblBanco.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lblBanco.Appearance.Options.UseFont = true;
+            this.lblBanco.Location = new System.Drawing.Point(12, 61);
+            this.lblBanco.Name = "lblBanco";
+            this.lblBanco.Size = new System.Drawing.Size(37, 13);
+            this.lblBanco.TabIndex = 9;
+            this.lblBanco.Text = "Banco:";
             // 
             // txtSenha
             // 
-            txtSenha.EnterMoveNextControl = true;
-            txtSenha.Location = new System.Drawing.Point(516, 32);
-            txtSenha.Name = "txtSenha";
-            txtSenha.Size = new System.Drawing.Size(71, 20);
-            txtSenha.TabIndex = 7;
+            this.txtSenha.EnterMoveNextControl = true;
+            this.txtSenha.Location = new System.Drawing.Point(516, 32);
+            this.txtSenha.Name = "txtSenha";
+            this.txtSenha.Size = new System.Drawing.Size(71, 20);
+            this.txtSenha.TabIndex = 3;
             // 
             // lblSenha
             // 
-            lblSenha.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            lblSenha.Appearance.Options.UseFont = true;
-            lblSenha.Location = new System.Drawing.Point(472, 35);
-            lblSenha.Name = "lblSenha";
-            lblSenha.Size = new System.Drawing.Size(38, 13);
-            lblSenha.TabIndex = 6;
-            lblSenha.Text = "Senha:";
+            this.lblSenha.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lblSenha.Appearance.Options.UseFont = true;
+            this.lblSenha.Location = new System.Drawing.Point(472, 35);
+            this.lblSenha.Name = "lblSenha";
+            this.lblSenha.Size = new System.Drawing.Size(38, 13);
+            this.lblSenha.TabIndex = 8;
+            this.lblSenha.Text = "Senha:";
             // 
             // txtUsuario
             // 
-            txtUsuario.EnterMoveNextControl = true;
-            txtUsuario.Location = new System.Drawing.Point(369, 32);
-            txtUsuario.Name = "txtUsuario";
-            txtUsuario.Size = new System.Drawing.Size(71, 20);
-            txtUsuario.TabIndex = 5;
+            this.txtUsuario.EnterMoveNextControl = true;
+            this.txtUsuario.Location = new System.Drawing.Point(369, 32);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(71, 20);
+            this.txtUsuario.TabIndex = 2;
             // 
             // lblUsuario
             // 
-            lblUsuario.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            lblUsuario.Appearance.Options.UseFont = true;
-            lblUsuario.Location = new System.Drawing.Point(317, 35);
-            lblUsuario.Name = "lblUsuario";
-            lblUsuario.Size = new System.Drawing.Size(46, 13);
-            lblUsuario.TabIndex = 4;
-            lblUsuario.Text = "Usuário:";
+            this.lblUsuario.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lblUsuario.Appearance.Options.UseFont = true;
+            this.lblUsuario.Location = new System.Drawing.Point(317, 35);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(46, 13);
+            this.lblUsuario.TabIndex = 7;
+            this.lblUsuario.Text = "Usuário:";
             // 
             // txtPorta
             // 
-            txtPorta.EnterMoveNextControl = true;
-            txtPorta.Location = new System.Drawing.Point(231, 32);
-            txtPorta.Name = "txtPorta";
-            txtPorta.Size = new System.Drawing.Size(71, 20);
-            txtPorta.TabIndex = 3;
+            this.txtPorta.EnterMoveNextControl = true;
+            this.txtPorta.Location = new System.Drawing.Point(231, 32);
+            this.txtPorta.Name = "txtPorta";
+            this.txtPorta.Size = new System.Drawing.Size(71, 20);
+            this.txtPorta.TabIndex = 1;
             // 
             // lblPorta
             // 
-            lblPorta.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            lblPorta.Appearance.Options.UseFont = true;
-            lblPorta.Location = new System.Drawing.Point(191, 35);
-            lblPorta.Name = "lblPorta";
-            lblPorta.Size = new System.Drawing.Size(34, 13);
-            lblPorta.TabIndex = 2;
-            lblPorta.Text = "Porta:";
+            this.lblPorta.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lblPorta.Appearance.Options.UseFont = true;
+            this.lblPorta.Location = new System.Drawing.Point(191, 35);
+            this.lblPorta.Name = "lblPorta";
+            this.lblPorta.Size = new System.Drawing.Size(34, 13);
+            this.lblPorta.TabIndex = 6;
+            this.lblPorta.Text = "Porta:";
             // 
             // txtServidor
             // 
-            txtServidor.EnterMoveNextControl = true;
-            txtServidor.Location = new System.Drawing.Point(69, 32);
-            txtServidor.Name = "txtServidor";
-            txtServidor.Size = new System.Drawing.Size(98, 20);
-            txtServidor.TabIndex = 1;
+            this.txtServidor.EnterMoveNextControl = true;
+            this.txtServidor.Location = new System.Drawing.Point(69, 32);
+            this.txtServidor.Name = "txtServidor";
+            this.txtServidor.Size = new System.Drawing.Size(98, 20);
+            this.txtServidor.TabIndex = 0;
             // 
             // lblServidor
             // 
-            lblServidor.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            lblServidor.Appearance.Options.UseFont = true;
-            lblServidor.Location = new System.Drawing.Point(12, 35);
-            lblServidor.Name = "lblServidor";
-            lblServidor.Size = new System.Drawing.Size(51, 13);
-            lblServidor.TabIndex = 0;
-            lblServidor.Text = "Servidor:";
+            this.lblServidor.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lblServidor.Appearance.Options.UseFont = true;
+            this.lblServidor.Location = new System.Drawing.Point(12, 35);
+            this.lblServidor.Name = "lblServidor";
+            this.lblServidor.Size = new System.Drawing.Size(51, 13);
+            this.lblServidor.TabIndex = 5;
+            this.lblServidor.Text = "Servidor:";
             // 
             // btnSair
             // 
-            btnSair.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            btnSair.Location = new System.Drawing.Point(-10, -10);
-            btnSair.Name = "btnSair";
-            btnSair.Size = new System.Drawing.Size(0, 0);
-            btnSair.TabIndex = 5;
-            btnSair.Text = "button1";
-            btnSair.UseVisualStyleBackColor = true;
-            btnSair.Click += btnSair_Click;
+            this.btnSair.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnSair.Location = new System.Drawing.Point(-10, -10);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(0, 0);
+            this.btnSair.TabIndex = 5;
+            this.btnSair.Text = "button1";
+            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // blciTemas
             // 
-            blciTemas.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            blciTemas.Caption = "Temas";
-            blciTemas.Id = 0;
-            blciTemas.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(skinDropDownButtonItem1), new DevExpress.XtraBars.LinkPersistInfo(skinPaletteDropDownButtonItem1) });
-            blciTemas.Name = "blciTemas";
+            this.blciTemas.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.blciTemas.Caption = "Temas";
+            this.blciTemas.Id = 0;
+            this.blciTemas.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.skinDropDownButtonItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.skinPaletteDropDownButtonItem1)});
+            this.blciTemas.Name = "blciTemas";
             // 
             // skinDropDownButtonItem1
             // 
-            skinDropDownButtonItem1.ActAsDropDown = true;
-            skinDropDownButtonItem1.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
-            skinDropDownButtonItem1.Id = 1;
-            skinDropDownButtonItem1.Name = "skinDropDownButtonItem1";
+            this.skinDropDownButtonItem1.ActAsDropDown = true;
+            this.skinDropDownButtonItem1.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
+            this.skinDropDownButtonItem1.Id = 1;
+            this.skinDropDownButtonItem1.Name = "skinDropDownButtonItem1";
             // 
             // skinPaletteDropDownButtonItem1
             // 
-            skinPaletteDropDownButtonItem1.ActAsDropDown = true;
-            skinPaletteDropDownButtonItem1.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
-            skinPaletteDropDownButtonItem1.Id = 2;
-            skinPaletteDropDownButtonItem1.Name = "skinPaletteDropDownButtonItem1";
+            this.skinPaletteDropDownButtonItem1.ActAsDropDown = true;
+            this.skinPaletteDropDownButtonItem1.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
+            this.skinPaletteDropDownButtonItem1.Id = 2;
+            this.skinPaletteDropDownButtonItem1.Name = "skinPaletteDropDownButtonItem1";
             // 
             // frmPrincipal
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            CancelButton = btnSair;
-            ChildControls.Add(fccPrincipal);
-            ClientSize = new System.Drawing.Size(817, 432);
-            IconOptions.Image = Properties.Resources.solution_16x16;
-            Links.Add(blciTemas);
-            MinimumSize = new System.Drawing.Size(136, 0);
-            Name = "frmPrincipal";
-            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            Text = "vsHelp";
-            FormClosing += frmNovo_FormClosing;
-            Load += frmNovo_Load;
-            fccPrincipal.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)tcPrincipal).EndInit();
-            tcPrincipal.ResumeLayout(false);
-            tpInstalacoes.ResumeLayout(false);
-            tpInstalacoes.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)checkBox7.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)checkBox6.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)checkBox5.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)checkBox4.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)checkBox3.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)checkBox2.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)checkBox1.Properties).EndInit();
-            tpRestaurarBanco.ResumeLayout(false);
-            tpRestaurarBanco.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pbProgressoRestaura.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)txtCaminhoBackup.Properties).EndInit();
-            tpUpdates.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)gcHomologacao).EndInit();
-            gcHomologacao.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)cbAtualizaDB.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)cbEmail.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)cbTelefone.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)cbSenhaSupervisor.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)cbSenhaUsuario.Properties).EndInit();
-            tpVersoes.ResumeLayout(false);
-            tpVersoes.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)gcConexao).EndInit();
-            gcConexao.ResumeLayout(false);
-            gcConexao.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)txtBanco.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)txtSenha.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)txtUsuario.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)txtPorta.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)txtServidor.Properties).EndInit();
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnSair;
+            this.ChildControls.Add(this.fccPrincipal);
+            this.ClientSize = new System.Drawing.Size(817, 432);
+            this.IconOptions.Image = global::vsHelp.Properties.Resources.solution_16x16;
+            this.Links.Add(this.blciTemas);
+            this.MinimumSize = new System.Drawing.Size(136, 0);
+            this.Name = "frmPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "vsHelp";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmNovo_FormClosing);
+            this.Load += new System.EventHandler(this.frmNovo_Load);
+            this.fccPrincipal.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tcPrincipal)).EndInit();
+            this.tcPrincipal.ResumeLayout(false);
+            this.tpInstalacoes.ResumeLayout(false);
+            this.tpInstalacoes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkBox7.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkBox6.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkBox5.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkBox4.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkBox3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkBox2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkBox1.Properties)).BeginInit();
+            this.tpRestaurarBanco.ResumeLayout(false);
+            this.tpRestaurarBanco.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProgressoRestaura.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCaminhoBackup.Properties)).BeginInit();
+            this.tpUpdates.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gcHomologacao)).BeginInit();
+            this.gcHomologacao.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cbAtualizaDB.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbEmail.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbTelefone.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbSenhaSupervisor.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbSenhaUsuario.Properties)).BeginInit();
+            this.tpVersoes.ResumeLayout(false);
+            this.tpVersoes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcConexao)).BeginInit();
+            this.gcConexao.ResumeLayout(false);
+            this.gcConexao.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbBanco.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSenha.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUsuario.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPorta.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtServidor.Properties)).BeginInit();
+            this.ResumeLayout(false);
         }
 
         #endregion
 
         private DevExpress.XtraEditors.DirectXFormContainerControl fccPrincipal;
         private DevExpress.XtraEditors.GroupControl gcConexao;
-        private DevExpress.XtraEditors.TextEdit txtBanco;
+        private DevExpress.XtraEditors.ComboBoxEdit cmbBanco;
+        private DevExpress.XtraEditors.SimpleButton btnTestConnection;
+        private DevExpress.XtraEditors.LabelControl lblConnectionStatus;
         private DevExpress.XtraEditors.LabelControl lblBanco;
         private DevExpress.XtraEditors.TextEdit txtSenha;
         private DevExpress.XtraEditors.LabelControl lblSenha;

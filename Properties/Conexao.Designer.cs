@@ -26,36 +26,36 @@ namespace vsHelp.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("localhost")]
-        public string Servidor {
+        public string IPSERVIDOR {
             get {
-                return ((string)(this["Servidor"]));
+                return ((string)(this["IPSERVIDOR"]));
             }
             set {
-                this["Servidor"] = value;
+                this["IPSERVIDOR"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("3306")]
-        public string Porta {
+        public string PORTASERVIDOR {
             get {
-                return ((string)(this["Porta"]));
+                return ((string)(this["PORTASERVIDOR"]));
             }
             set {
-                this["Porta"] = value;
+                this["PORTASERVIDOR"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("root")]
-        public string Usuario {
+        public string USUARIOSERVIDOR {
             get {
-                return ((string)(this["Usuario"]));
+                return ((string)(this["USUARIOSERVIDOR"]));
             }
             set {
-                this["Usuario"] = value;
+                this["USUARIOSERVIDOR"] = value;
             }
         }
         
@@ -74,12 +74,12 @@ namespace vsHelp.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("vsbd")]
-        public string Banco {
+        public string DATABASE {
             get {
-                return ((string)(this["Banco"]));
+                return ((string)(this["DATABASE"]));
             }
             set {
-                this["Banco"] = value;
+                this["DATABASE"] = value;
             }
         }
     }
