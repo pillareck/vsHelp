@@ -55,7 +55,6 @@ public partial class MainViewModel : ObservableObject
     }
 }
 
-public class HomeViewModel : ObservableObject { }
 public class InstallationsViewModel : ObservableObject { }
 public class HomologationViewModel : ObservableObject { }
 public class VersionsViewModel : ObservableObject { }

@@ -6,9 +6,10 @@
         xmlns:viewmodels="clr-namespace:vsHelp.UI.WPF.ViewModels"
         xmlns:views="clr-namespace:vsHelp.UI.WPF.Views"
         mc:Ignorable="d"
-        Title="vsHelp" Height="720" Width="1280"
+        Title="vsHelp" Height="720" Width="1200"
         WindowStartupLocation="CenterScreen"
-        Background="{DynamicResource MainBackgroundBrush}">
+        Background="{StaticResource AppBackgroundBrush}"
+        UseLayoutRounding="True">
 
     <Window.DataContext>
         <viewmodels:MainViewModel />
@@ -34,12 +35,15 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="260"/>
+            <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <!-- Sidebar -->
-        <Border Background="{DynamicResource SidebarBackgroundBrush}" Grid.Column="0">
+        <!-- SIDEBAR -->
+        <Border Background="{StaticResource SidebarBackgroundBrush}" 
+                Grid.Column="0" 
+                BorderBrush="{StaticResource BorderBrush}" 
+                BorderThickness="0,0,1,0">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -48,64 +52,89 @@
                 </Grid.RowDefinitions>
 
                 <!-- Sidebar Header -->
-                <StackPanel Grid.Row="0" Margin="16,24,16,24">
+                <StackPanel Grid.Row="0" Margin="16,24,16,32">
                     <TextBlock Text="vsHelp" 
-                               FontSize="20"
-                               Foreground="White"
+                               FontSize="16"
+                               Foreground="{StaticResource TextPrimaryBrush}"
                                FontWeight="Bold"/>
-                    <TextBlock Text="Backup Manager" 
-                               Foreground="{StaticResource SecondaryTextBrush}"
-                               FontSize="12"/>
+                    <TextBlock Text="BACKUP" 
+                               Foreground="{StaticResource TextMutedBrush}"
+                               FontSize="9"
+                               FontWeight="Bold"
+                               Margin="0,4,0,0"/>
                 </StackPanel>
 
-                <!-- Navigation Menu -->
+                <!-- Navigation -->
                 <StackPanel Grid.Row="1">
-                    <Button Style="{StaticResource SidebarButtonStyle}"
-                            Content="Restaurar Backup"
-                            Command="{Binding NavigateToRestoreBackupCommand}"/>
+                    <RadioButton Style="{StaticResource SidebarButtonStyle}"
+                                 Content="Restaurar Backup"
+                                 IsChecked="True"
+                                 GroupName="SidebarMenu"
+                                 Command="{Binding NavigateToRestoreBackupCommand}"/>
                     
-                    <Button Style="{StaticResource SidebarButtonStyle}"
-                            Content="Instalações"
-                            Command="{Binding NavigateToInstallationsCommand}"/>
+                    <RadioButton Style="{StaticResource SidebarButtonStyle}"
+                                 Content="Instalações"
+                                 GroupName="SidebarMenu"
+                                 Command="{Binding NavigateToInstallationsCommand}"/>
                     
-                    <Button Style="{StaticResource SidebarButtonStyle}"
-                            Content="Homologação"
-                            Command="{Binding NavigateToHomologationCommand}"/>
+                    <RadioButton Style="{StaticResource SidebarButtonStyle}"
+                                 Content="Homologação"
+                                 GroupName="SidebarMenu"
+                                 Command="{Binding NavigateToHomologationCommand}"/>
                     
-                    <Button Style="{StaticResource SidebarButtonStyle}"
+                    <RadioButton Style="{StaticResource SidebarButtonStyle}"
                                  Content="Versões"
+                                 GroupName="SidebarMenu"
                                  Command="{Binding NavigateToVersionsCommand}"/>
                 </StackPanel>
 
-                <!-- Sidebar Footer -->
-                <StackPanel Grid.Row="2" Margin="0,0,0,16">
-                    <Button Style="{StaticResource SidebarButtonStyle}"
-                            Content="Configurações"
-                            Command="{Binding NavigateToSettingsCommand}"/>
+                <!-- Footer -->
+                <StackPanel Grid.Row="2" Margin="0,0,0,24">
+                    <RadioButton Style="{StaticResource SidebarButtonStyle}"
+                                 Content="Configurações"
+                                 GroupName="SidebarMenu"
+                                 Command="{Binding NavigateToSettingsCommand}"/>
                 </StackPanel>
             </Grid>
         </Border>
 
-        <!-- Main Content Area -->
+        <!-- MAIN AREA -->
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="64"/>
+                <RowDefinition Height="52"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <!-- Top Header -->
-            <Border Grid.Row="0" Background="{DynamicResource MainBackgroundBrush}" 
-                    BorderBrush="#1E1F22" BorderThickness="0,0,0,1">
+            <!-- Header -->
+            <Border Grid.Row="0" 
+                    Background="{StaticResource AppBackgroundBrush}" 
+                    BorderBrush="{StaticResource BorderBrush}" 
+                    BorderThickness="0,0,0,1">
                 <Grid Margin="24,0">
                     <TextBlock Text="{Binding CurrentViewName, FallbackValue='Restaurar Backup'}" 
                                VerticalAlignment="Center"
-                               FontSize="18"
-                               Foreground="White"/>
+                               FontSize="12.5"
+                               FontWeight="SemiBold"
+                               Foreground="{StaticResource TextPrimaryBrush}"/>
+                    
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                        <!-- Connection Status -->
+                        <Border Background="#0D32D74B" CornerRadius="12" Padding="8,3" Margin="0,0,16,0" BorderBrush="#2632D74B" BorderThickness="1">
+                            <StackPanel Orientation="Horizontal">
+                                <Ellipse Width="6" Height="6" Fill="{StaticResource SuccessBrush}" VerticalAlignment="Center" Margin="0,0,6,0"/>
+                                <TextBlock Text="localhost:3306" FontSize="10.5" Foreground="{StaticResource SuccessBrush}" FontWeight="Medium"/>
+                            </StackPanel>
+                        </Border>
+                        
+                        <TextBlock Text="v4.0.0" FontSize="10.5" Foreground="{StaticResource TextMutedBrush}" VerticalAlignment="Center"/>
+                    </StackPanel>
                 </Grid>
             </Border>
 
-            <!-- Content -->
-            <ContentControl Grid.Row="1" Content="{Binding CurrentView}"/>
+            <!-- Content Area -->
+            <Grid Grid.Row="1" Background="{StaticResource AppBackgroundBrush}">
+                <ContentControl Content="{Binding CurrentView}"/>
+            </Grid>
         </Grid>
     </Grid>
 </Window>
