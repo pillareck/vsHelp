@@ -1,5 +1,3 @@
-﻿using System.Configuration;
-using System.Data;
 using System.Windows;
 
 namespace vsHelp.UI.WPF
@@ -10,5 +8,4 @@ namespace vsHelp.UI.WPF
     public partial class App : System.Windows.Application
     {
     }
-
 }
