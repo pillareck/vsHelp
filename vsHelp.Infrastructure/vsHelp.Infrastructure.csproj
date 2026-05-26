@@ -10,4 +10,8 @@
     <ProjectReference Include="..\vsHelp.Core\vsHelp.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="SharpCompress" Version="0.48.1" />
+  </ItemGroup>
+
 </Project>

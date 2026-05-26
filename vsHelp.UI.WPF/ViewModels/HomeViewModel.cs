@@ -11,6 +11,7 @@ namespace vsHelp.UI.WPF.ViewModels;
 public partial class HomeViewModel : ObservableObject
 {
     private readonly BackupValidationService _validationService;
+    private readonly BackupExtractionService _extractionService;
 
     [ObservableProperty]
     private string _statusMessage = "Aguardando seleção de arquivo...";
@@ -25,6 +26,9 @@ public partial class HomeViewModel : ObservableObject
     private bool _isValidating;
 
     [ObservableProperty]
+    private bool _isExtracting;
+
+    [ObservableProperty]
     private bool _isBackupValid;
 
     [ObservableProperty]
@@ -35,6 +39,7 @@ public partial class HomeViewModel : ObservableObject
     public HomeViewModel()
     {
         _validationService = new BackupValidationService();
+        _extractionService = new BackupExtractionService();
         AddLog("Sistema pronto para operação.");
     }
 
@@ -58,6 +63,7 @@ public partial class HomeViewModel : ObservableObject
         try
         {
             IsValidating = true;
+            IsExtracting = false;
             IsBackupValid = false;
             IsFileSelected = false;
             OperationProgress = 0;
@@ -77,35 +83,70 @@ public partial class HomeViewModel : ObservableObject
             StatusMessage = "Validando arquivo: " + SelectedFile.FileName;
             AddLog($"[INFO] Arquivo selecionado: {SelectedFile.FileName}");
 
-            // Call Validation Service
-            OperationProgress = 20;
+            // Step 1: Validation
+            OperationProgress = 10;
             var validationResult = await _validationService.ValidateBackupAsync(filePath);
             
-            OperationProgress = 80;
             foreach (var log in validationResult.ValidationLogs)
             {
                 AddLog(log);
             }
 
             IsBackupValid = validationResult.IsValid;
-            StatusMessage = validationResult.IsValid ? "Backup validado com sucesso." : "Falha na validação do backup.";
             
             if (!IsBackupValid)
             {
+                StatusMessage = "Falha na validação do backup.";
                 AddLog($"[WARNING] O backup selecionado não é válido para restauração automática.");
+                OperationProgress = 0;
+                return;
+            }
+
+            StatusMessage = "Backup validado. Iniciando extração...";
+            IsValidating = false;
+            IsExtracting = true;
+
+            // Step 2: Extraction (only if not .sql)
+            var progressReporter = new Progress<double>(p => OperationProgress = 20 + (p * 0.8)); // Mapping 0-100 to 20-100 range
+            
+            var extractionResult = await _extractionService.PrepareBackupForRestoreAsync(filePath, progressReporter);
+            
+            foreach (var log in extractionResult.Logs)
+            {
+                AddLog(log);
+            }
+
+            if (extractionResult.Success)
+            {
+                if (extractionResult.SqlFilesFound.Any())
+                {
+                    AddLog($"[SUCCESS] Pronto para restauração. {extractionResult.SqlFilesFound.Count} arquivo(s) SQL localizados.");
+                    StatusMessage = "Pronto para restaurar.";
+                }
+                else
+                {
+                    AddLog("[WARNING] Extração concluída, mas nenhum arquivo .sql foi encontrado no pacote.");
+                    StatusMessage = "Aviso: SQL não encontrado.";
+                }
+            }
+            else
+            {
+                AddLog($"[ERROR] Falha na extração: {extractionResult.Message}");
+                StatusMessage = "Erro na extração.";
             }
 
             OperationProgress = 100;
         }
         catch (Exception ex)
         {
-            AddLog($"[ERRO] Falha crítica ao processar arquivo: {ex.Message}");
-            StatusMessage = "Erro fatal ao selecionar arquivo.";
+            AddLog($"[ERRO] Falha crítica no processamento: {ex.Message}");
+            StatusMessage = "Erro fatal.";
             IsBackupValid = false;
         }
         finally
         {
             IsValidating = false;
+            IsExtracting = false;
         }
     }
 
