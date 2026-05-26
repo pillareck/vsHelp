@@ -3,15 +3,14 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Win32;
 using vsHelp.Core.Models;
-using vsHelp.Application.Services;
+using vsHelp.Application.Orchestrators;
 using System.IO;
 
 namespace vsHelp.UI.WPF.ViewModels;
 
 public partial class HomeViewModel : ObservableObject
 {
-    private readonly BackupValidationService _validationService;
-    private readonly BackupExtractionService _extractionService;
+    private readonly BackupRestoreOrchestrator _orchestrator;
 
     [ObservableProperty]
     private string _statusMessage = "Aguardando seleção de arquivo...";
@@ -23,10 +22,7 @@ public partial class HomeViewModel : ObservableObject
     private bool _isFileSelected;
 
     [ObservableProperty]
-    private bool _isValidating;
-
-    [ObservableProperty]
-    private bool _isExtracting;
+    private bool _isProcessing;
 
     [ObservableProperty]
     private bool _isBackupValid;
@@ -34,125 +30,74 @@ public partial class HomeViewModel : ObservableObject
     [ObservableProperty]
     private double _operationProgress;
 
+    // MySQL Fake/Manual Settings for now
+    [ObservableProperty]
+    private string _dbServer = "localhost";
+    
+    [ObservableProperty]
+    private string _dbName = "vs_help_restore";
+
     public ObservableCollection<string> Logs { get; } = new();
 
     public HomeViewModel()
     {
-        _validationService = new BackupValidationService();
-        _extractionService = new BackupExtractionService();
+        _orchestrator = new BackupRestoreOrchestrator();
         AddLog("Sistema pronto para operação.");
     }
 
     [RelayCommand]
-    private async Task SelectFileAsync()
+    private async Task SelectAndRestoreAsync()
     {
         var openFileDialog = new OpenFileDialog
         {
             Filter = "Arquivos de Backup (*.zip;*.rar;*.sql)|*.zip;*.rar;*.sql|Todos os arquivos (*.*)|*.*",
-            Title = "Selecionar Arquivo de Backup"
+            Title = "Selecionar Backup para Restauração"
         };
 
         if (openFileDialog.ShowDialog() == true)
         {
-            await ProcessSelectedFile(openFileDialog.FileName);
+            await RunFullRestoreFlow(openFileDialog.FileName);
         }
     }
 
-    public async Task ProcessSelectedFile(string filePath)
+    private async Task RunFullRestoreFlow(string filePath)
     {
         try
         {
-            IsValidating = true;
-            IsExtracting = false;
-            IsBackupValid = false;
-            IsFileSelected = false;
-            OperationProgress = 0;
+            IsProcessing = true;
+            IsBackupValid = true; // Visual state
+            Logs.Clear();
             
-            var fileInfo = new FileInfo(filePath);
-            
-            SelectedFile = new BackupFile
+            var dbSettings = new DatabaseConnectionSettings
             {
-                FullPath = fileInfo.FullName,
-                FileName = fileInfo.Name,
-                Extension = fileInfo.Extension.ToUpper().Replace(".", ""),
-                SizeInBytes = fileInfo.Length,
-                FormattedSize = BackupFile.GetFormattedSize(fileInfo.Length)
+                Server = DbServer,
+                DatabaseName = DbName,
+                User = "root",
+                Password = "" // Should be handled securely in real scenario
             };
 
-            IsFileSelected = true;
-            StatusMessage = "Validando arquivo: " + SelectedFile.FileName;
-            AddLog($"[INFO] Arquivo selecionado: {SelectedFile.FileName}");
-
-            // Step 1: Validation
-            OperationProgress = 10;
-            var validationResult = await _validationService.ValidateBackupAsync(filePath);
+            var progress = new Progress<double>(p => OperationProgress = p);
             
-            foreach (var log in validationResult.ValidationLogs)
-            {
-                AddLog(log);
-            }
-
-            IsBackupValid = validationResult.IsValid;
+            await _orchestrator.RunRestoreAsync(filePath, dbSettings, progress, AddLog);
             
-            if (!IsBackupValid)
-            {
-                StatusMessage = "Falha na validação do backup.";
-                AddLog($"[WARNING] O backup selecionado não é válido para restauração automática.");
-                OperationProgress = 0;
-                return;
-            }
-
-            StatusMessage = "Backup validado. Iniciando extração...";
-            IsValidating = false;
-            IsExtracting = true;
-
-            // Step 2: Extraction (only if not .sql)
-            var progressReporter = new Progress<double>(p => OperationProgress = 20 + (p * 0.8)); // Mapping 0-100 to 20-100 range
-            
-            var extractionResult = await _extractionService.PrepareBackupForRestoreAsync(filePath, progressReporter);
-            
-            foreach (var log in extractionResult.Logs)
-            {
-                AddLog(log);
-            }
-
-            if (extractionResult.Success)
-            {
-                if (extractionResult.SqlFilesFound.Any())
-                {
-                    AddLog($"[SUCCESS] Pronto para restauração. {extractionResult.SqlFilesFound.Count} arquivo(s) SQL localizados.");
-                    StatusMessage = "Pronto para restaurar.";
-                }
-                else
-                {
-                    AddLog("[WARNING] Extração concluída, mas nenhum arquivo .sql foi encontrado no pacote.");
-                    StatusMessage = "Aviso: SQL não encontrado.";
-                }
-            }
-            else
-            {
-                AddLog($"[ERROR] Falha na extração: {extractionResult.Message}");
-                StatusMessage = "Erro na extração.";
-            }
-
-            OperationProgress = 100;
+            StatusMessage = OperationProgress >= 100 ? "Restauração Finalizada!" : "Falha na operação.";
         }
         catch (Exception ex)
         {
-            AddLog($"[ERRO] Falha crítica no processamento: {ex.Message}");
-            StatusMessage = "Erro fatal.";
-            IsBackupValid = false;
+            AddLog($"[ERROR] Falha na UI: {ex.Message}");
         }
         finally
         {
-            IsValidating = false;
-            IsExtracting = false;
+            IsProcessing = false;
         }
     }
 
     private void AddLog(string message)
     {
-        string timestamp = DateTime.Now.ToString("HH:mm:ss");
-        Logs.Add($"[{timestamp}] {message}");
+        App.Current.Dispatcher.Invoke(() =>
+        {
+            string timestamp = DateTime.Now.ToString("HH:mm:ss");
+            Logs.Add($"[{timestamp}] {message}");
+        });
     }
 }

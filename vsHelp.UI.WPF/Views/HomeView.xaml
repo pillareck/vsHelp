@@ -18,88 +18,44 @@
                        FontSize="22" FontWeight="Bold" 
                        Foreground="{StaticResource TextPrimaryBrush}" 
                        Margin="0,0,0,4"/>
-            <TextBlock Text="Realize o restore de bases de dados MySQL ou arquivos de sistema de forma automatizada." 
+            <TextBlock Text="Fluxo automatizado: Validação, Extração e Restauração MySQL." 
                        FontSize="13" Foreground="{StaticResource TextSecondaryBrush}" 
                        Margin="0,0,0,32"/>
             
-            <!-- DRAG & DROP AREA / FILE SELECTION -->
+            <!-- CONFIGURATION AREA -->
+            <Border Style="{StaticResource ModernCardStyle}" Margin="0,0,0,24">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Margin="0,0,12,0">
+                        <TextBlock Text="Servidor MySQL" FontSize="12" Foreground="{StaticResource TextSecondaryBrush}" Margin="0,0,0,8"/>
+                        <Border Style="{StaticResource ModernInputStyle}">
+                            <TextBox Text="{Binding DbServer, UpdateSourceTrigger=PropertyChanged}" 
+                                     Background="Transparent" BorderThickness="0" Foreground="White" 
+                                     VerticalAlignment="Center" Margin="10,0" FontSize="13"/>
+                        </Border>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Margin="12,0,0,0">
+                        <TextBlock Text="Nome do Banco" FontSize="12" Foreground="{StaticResource TextSecondaryBrush}" Margin="0,0,0,8"/>
+                        <Border Style="{StaticResource ModernInputStyle}">
+                            <TextBox Text="{Binding DbName, UpdateSourceTrigger=PropertyChanged}" 
+                                     Background="Transparent" BorderThickness="0" Foreground="White" 
+                                     VerticalAlignment="Center" Margin="10,0" FontSize="13"/>
+                        </Border>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <!-- ACTION AREA -->
             <Border Style="{StaticResource ModernCardStyle}" Margin="0,0,0,24">
                 <StackPanel>
-                    <TextBlock Text="Arquivo de Backup" FontSize="13" FontWeight="SemiBold" Foreground="{StaticResource TextPrimaryBrush}" Margin="0,0,0,12"/>
-                    
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
-                        
-                        <Border x:Name="DropArea" Style="{StaticResource ModernInputStyle}" Cursor="Hand">
-                            <Grid>
-                                <!-- Placeholder (Visible if NOT selected) -->
-                                <TextBlock Text="Clique para selecionar ou arraste o arquivo .zip, .rar ou .sql..." 
-                                           VerticalAlignment="Center" Margin="12,0"
-                                           Foreground="{StaticResource TextMutedBrush}" FontSize="12.5">
-                                    <TextBlock.Style>
-                                        <Style TargetType="TextBlock">
-                                            <Setter Property="Visibility" Value="Collapsed"/>
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding IsFileSelected}" Value="False">
-                                                    <Setter Property="Visibility" Value="Visible"/>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </TextBlock.Style>
-                                </TextBlock>
-                                
-                                <!-- File Info (Visible if selected) -->
-                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="12,0">
-                                    <StackPanel.Style>
-                                        <Style TargetType="StackPanel">
-                                            <Setter Property="Visibility" Value="Collapsed"/>
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding IsFileSelected}" Value="True">
-                                                    <Setter Property="Visibility" Value="Visible"/>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </StackPanel.Style>
-                                    
-                                    <!-- Status Icon -->
-                                    <Ellipse Width="8" Height="8" Margin="0,0,10,0">
-                                        <Ellipse.Style>
-                                            <Style TargetType="Ellipse">
-                                                <Setter Property="Fill" Value="{StaticResource WarningBrush}"/>
-                                                <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding IsBackupValid}" Value="True">
-                                                        <Setter Property="Fill" Value="{StaticResource SuccessBrush}"/>
-                                                    </DataTrigger>
-                                                    <MultiDataTrigger>
-                                                        <MultiDataTrigger.Conditions>
-                                                            <Condition Binding="{Binding IsBackupValid}" Value="False"/>
-                                                            <Condition Binding="{Binding IsValidating}" Value="False"/>
-                                                            <Condition Binding="{Binding IsExtracting}" Value="False"/>
-                                                        </MultiDataTrigger.Conditions>
-                                                        <Setter Property="Fill" Value="{StaticResource ErrorBrush}"/>
-                                                    </MultiDataTrigger>
-                                                </Style.Triggers>
-                                            </Style>
-                                        </Ellipse.Style>
-                                    </Ellipse>
-
-                                    <TextBlock Text="{Binding SelectedFile.FileName}" Foreground="{StaticResource TextPrimaryBrush}" FontWeight="SemiBold" FontSize="12.5"/>
-                                    <TextBlock Text=" • " Foreground="{StaticResource TextMutedBrush}"/>
-                                    <TextBlock Text="{Binding SelectedFile.FormattedSize}" Foreground="{StaticResource TextSecondaryBrush}" FontSize="11.5"/>
-                                    <TextBlock Text=" • " Foreground="{StaticResource TextMutedBrush}"/>
-                                    <TextBlock Text="{Binding SelectedFile.Extension}" Foreground="{StaticResource AccentBrush}" FontWeight="Bold" FontSize="11"/>
-                                </StackPanel>
-                            </Grid>
-                        </Border>
-                        
-                        <Button Grid.Column="1" Style="{StaticResource PrimaryButtonStyle}" 
-                                Content="SELECIONAR" Margin="12,0,0,0"
-                                Command="{Binding SelectFileCommand}"
-                                IsEnabled="{Binding IsValidating, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter=Inverse}"/>
-                    </Grid>
+                    <TextBlock Text="Ação" FontSize="13" FontWeight="SemiBold" Foreground="{StaticResource TextPrimaryBrush}" Margin="0,0,0,12"/>
+                    <Button Style="{StaticResource PrimaryButtonStyle}" 
+                            Content="SELECIONAR E RESTAURAR BACKUP" 
+                            Command="{Binding SelectAndRestoreCommand}"
+                            IsEnabled="{Binding IsProcessing, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter=Inverse}"/>
                 </StackPanel>
             </Border>
 
@@ -107,7 +63,7 @@
             <Border Style="{StaticResource ModernCardStyle}" Margin="0,0,0,24">
                 <StackPanel>
                     <Grid Margin="0,0,0,12">
-                        <TextBlock Text="Progresso da Operação" FontSize="13" FontWeight="SemiBold" Foreground="{StaticResource TextPrimaryBrush}"/>
+                        <TextBlock Text="Progresso do Pipeline" FontSize="13" FontWeight="SemiBold" Foreground="{StaticResource TextPrimaryBrush}"/>
                         <TextBlock Text="{Binding StatusMessage}" HorizontalAlignment="Right" FontSize="11" Foreground="{StaticResource TextMutedBrush}"/>
                     </Grid>
                     
