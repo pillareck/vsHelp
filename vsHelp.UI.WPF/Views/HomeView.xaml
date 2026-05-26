@@ -63,6 +63,28 @@
                                             </Style.Triggers>
                                         </Style>
                                     </StackPanel.Style>
+                                    
+                                    <!-- Status Icon -->
+                                    <Ellipse Width="8" Height="8" Margin="0,0,10,0">
+                                        <Ellipse.Style>
+                                            <Style TargetType="Ellipse">
+                                                <Setter Property="Fill" Value="{StaticResource WarningBrush}"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsBackupValid}" Value="True">
+                                                        <Setter Property="Fill" Value="{StaticResource SuccessBrush}"/>
+                                                    </DataTrigger>
+                                                    <MultiDataTrigger>
+                                                        <MultiDataTrigger.Conditions>
+                                                            <Condition Binding="{Binding IsBackupValid}" Value="False"/>
+                                                            <Condition Binding="{Binding IsValidating}" Value="False"/>
+                                                        </MultiDataTrigger.Conditions>
+                                                        <Setter Property="Fill" Value="{StaticResource ErrorBrush}"/>
+                                                    </MultiDataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Ellipse.Style>
+                                    </Ellipse>
+
                                     <TextBlock Text="{Binding SelectedFile.FileName}" Foreground="{StaticResource TextPrimaryBrush}" FontWeight="SemiBold" FontSize="12.5"/>
                                     <TextBlock Text=" • " Foreground="{StaticResource TextMutedBrush}"/>
                                     <TextBlock Text="{Binding SelectedFile.FormattedSize}" Foreground="{StaticResource TextSecondaryBrush}" FontSize="11.5"/>
@@ -74,7 +96,8 @@
                         
                         <Button Grid.Column="1" Style="{StaticResource PrimaryButtonStyle}" 
                                 Content="SELECIONAR" Margin="12,0,0,0"
-                                Command="{Binding SelectFileCommand}"/>
+                                Command="{Binding SelectFileCommand}"
+                                IsEnabled="{Binding IsValidating, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter=Inverse}"/>
                     </Grid>
                 </StackPanel>
             </Border>

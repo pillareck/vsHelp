@@ -19,6 +19,7 @@
                                 Background="{TemplateBinding Background}"
                                 CornerRadius="5"
                                 SnapsToDevicePixels="True"/>
+                        
                         <!-- Active Indicator (Left Stripe) -->
                         <Border x:Name="Indicator" 
                                 Width="3" 
@@ -27,11 +28,7 @@
                                 CornerRadius="2" 
                                 HorizontalAlignment="Left" 
                                 Margin="-4,0,0,0" 
-                                Opacity="0">
-                            <Border.RenderTransform>
-                                <TranslateTransform X="-2"/>
-                            </Border.RenderTransform>
-                        </Border>
+                                Visibility="Collapsed"/>
                         
                         <ContentPresenter x:Name="Content"
                                           VerticalAlignment="Center"
@@ -53,26 +50,7 @@
                         <Trigger Property="IsChecked" Value="True">
                             <Setter TargetName="Border" Property="Background" Value="{StaticResource SelectionBrush}"/>
                             <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
-                            <Trigger.EnterActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="Indicator" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.2"/>
-                                        <DoubleAnimation Storyboard.TargetName="Indicator" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)" To="0" Duration="0:0:0.2">
-                                            <DoubleAnimation.EasingFunction>
-                                                <CircleEase EasingMode="EaseOut"/>
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </Trigger.EnterActions>
-                            <Trigger.ExitActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="Indicator" Storyboard.TargetProperty="Opacity" To="0" Duration="0:0:0.2"/>
-                                        <DoubleAnimation Storyboard.TargetName="Indicator" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)" To="-2" Duration="0:0:0.2"/>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </Trigger.ExitActions>
+                            <Setter TargetName="Indicator" Property="Visibility" Value="Visible"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -94,11 +72,7 @@
                     <Border x:Name="Border"
                             Background="{TemplateBinding Background}"
                             CornerRadius="6"
-                            RenderTransformOrigin="0.5,0.5"
                             SnapsToDevicePixels="True">
-                        <Border.RenderTransform>
-                            <ScaleTransform ScaleX="1" ScaleY="1"/>
-                        </Border.RenderTransform>
                         <ContentPresenter VerticalAlignment="Center"
                                           HorizontalAlignment="Center"
                                           Margin="{TemplateBinding Padding}">
@@ -115,23 +89,7 @@
                             <Setter Property="Opacity" Value="0.9"/>
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Opacity" Value="0.8"/>
-                            <Trigger.EnterActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="Border" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)" To="0.96" Duration="0:0:0.05"/>
-                                        <DoubleAnimation Storyboard.TargetName="Border" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)" To="0.96" Duration="0:0:0.05"/>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </Trigger.EnterActions>
-                            <Trigger.ExitActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="Border" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)" To="1" Duration="0:0:0.1"/>
-                                        <DoubleAnimation Storyboard.TargetName="Border" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)" To="1" Duration="0:0:0.1"/>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </Trigger.ExitActions>
+                            <Setter Property="Opacity" Value="0.7"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -146,11 +104,6 @@
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="CornerRadius" Value="12"/>
         <Setter Property="Padding" Value="24"/>
-        <Setter Property="Effect">
-            <Setter.Value>
-                <DropShadowEffect BlurRadius="15" ShadowDepth="2" Opacity="0.1" Color="Black"/>
-            </Setter.Value>
-        </Setter>
     </Style>
 
     <!-- MODERN INPUT STYLE (TextBox Pseudo) -->
@@ -187,9 +140,6 @@
                                     <GradientStop Color="#58A6FF" Offset="1"/>
                                 </LinearGradientBrush>
                             </Border.Background>
-                            <Border.Effect>
-                                <DropShadowEffect BlurRadius="10" ShadowDepth="0" Color="#007AFF" Opacity="0.3"/>
-                            </Border.Effect>
                         </Border>
                     </Grid>
                 </ControlTemplate>

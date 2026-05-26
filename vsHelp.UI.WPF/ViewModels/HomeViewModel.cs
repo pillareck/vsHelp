@@ -3,12 +3,15 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Win32;
 using vsHelp.Core.Models;
+using vsHelp.Application.Services;
 using System.IO;
 
 namespace vsHelp.UI.WPF.ViewModels;
 
 public partial class HomeViewModel : ObservableObject
 {
+    private readonly BackupValidationService _validationService;
+
     [ObservableProperty]
     private string _statusMessage = "Aguardando seleção de arquivo...";
 
@@ -19,12 +22,19 @@ public partial class HomeViewModel : ObservableObject
     private bool _isFileSelected;
 
     [ObservableProperty]
+    private bool _isValidating;
+
+    [ObservableProperty]
+    private bool _isBackupValid;
+
+    [ObservableProperty]
     private double _operationProgress;
 
     public ObservableCollection<string> Logs { get; } = new();
 
     public HomeViewModel()
     {
+        _validationService = new BackupValidationService();
         AddLog("Sistema pronto para operação.");
     }
 
@@ -47,6 +57,11 @@ public partial class HomeViewModel : ObservableObject
     {
         try
         {
+            IsValidating = true;
+            IsBackupValid = false;
+            IsFileSelected = false;
+            OperationProgress = 0;
+            
             var fileInfo = new FileInfo(filePath);
             
             SelectedFile = new BackupFile
@@ -59,23 +74,38 @@ public partial class HomeViewModel : ObservableObject
             };
 
             IsFileSelected = true;
-            StatusMessage = "Arquivo selecionado: " + SelectedFile.FileName;
+            StatusMessage = "Validando arquivo: " + SelectedFile.FileName;
+            AddLog($"[INFO] Arquivo selecionado: {SelectedFile.FileName}");
+
+            // Call Validation Service
+            OperationProgress = 20;
+            var validationResult = await _validationService.ValidateBackupAsync(filePath);
             
-            AddLog($"[INFO] Backup selecionado: {SelectedFile.FileName} ({SelectedFile.FormattedSize})");
-            AddLog($"[INFO] Caminho: {SelectedFile.FullPath}");
-            
-            // Simular um estado visual de carregamento ou validação inicial rápida
-            OperationProgress = 0;
-            for (int i = 0; i <= 100; i += 10)
+            OperationProgress = 80;
+            foreach (var log in validationResult.ValidationLogs)
             {
-                OperationProgress = i;
-                await Task.Delay(20);
+                AddLog(log);
             }
+
+            IsBackupValid = validationResult.IsValid;
+            StatusMessage = validationResult.IsValid ? "Backup validado com sucesso." : "Falha na validação do backup.";
+            
+            if (!IsBackupValid)
+            {
+                AddLog($"[WARNING] O backup selecionado não é válido para restauração automática.");
+            }
+
+            OperationProgress = 100;
         }
         catch (Exception ex)
         {
-            AddLog($"[ERRO] Falha ao processar arquivo: {ex.Message}");
-            StatusMessage = "Erro ao selecionar arquivo.";
+            AddLog($"[ERRO] Falha crítica ao processar arquivo: {ex.Message}");
+            StatusMessage = "Erro fatal ao selecionar arquivo.";
+            IsBackupValid = false;
+        }
+        finally
+        {
+            IsValidating = false;
         }
     }
 
