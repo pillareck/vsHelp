@@ -119,13 +119,15 @@
                     
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
                         <!-- Connection Status -->
-                        <Border Background="#0D32D74B" CornerRadius="12" Padding="8,3" Margin="0,0,16,0" BorderBrush="#2632D74B" BorderThickness="1">
+                        <Border Background="#0D32D74B" CornerRadius="12" Padding="8,3" Margin="0,0,16,0" 
+                                BorderBrush="#2632D74B" BorderThickness="1"
+                                Visibility="{Binding IsConnected, Converter={StaticResource BooleanToVisibilityConverter}}">
                             <StackPanel Orientation="Horizontal">
                                 <Ellipse Width="6" Height="6" Fill="{StaticResource SuccessBrush}" VerticalAlignment="Center" Margin="0,0,6,0"/>
-                                <TextBlock Text="localhost:3306" FontSize="10.5" Foreground="{StaticResource SuccessBrush}" FontWeight="Medium"/>
+                                <TextBlock Text="{Binding ConnectionStatusText}" FontSize="10.5" Foreground="{StaticResource SuccessBrush}" FontWeight="Medium"/>
                             </StackPanel>
                         </Border>
-                        
+
                         <TextBlock Text="v4.0.0" FontSize="10.5" Foreground="{StaticResource TextMutedBrush}" VerticalAlignment="Center"/>
                     </StackPanel>
                 </Grid>

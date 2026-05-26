@@ -4,97 +4,204 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="800">
+             d:DesignHeight="700" d:DesignWidth="800">
     
-    <UserControl.Resources>
-        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
-    </UserControl.Resources>
-
     <Grid Margin="32">
-        <StackPanel MaxWidth="800" HorizontalAlignment="Left" Width="Auto">
-            
-            <!-- SECTION TITLE -->
-            <TextBlock Text="Restauração de Backup" 
-                       FontSize="22" FontWeight="Bold" 
-                       Foreground="{StaticResource TextPrimaryBrush}" 
-                       Margin="0,0,0,4"/>
-            <TextBlock Text="Fluxo automatizado: Validação, Extração e Restauração MySQL." 
-                       FontSize="13" Foreground="{StaticResource TextSecondaryBrush}" 
-                       Margin="0,0,0,32"/>
-            
-            <!-- CONFIGURATION AREA -->
-            <Border Style="{StaticResource ModernCardStyle}" Margin="0,0,0,24">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <StackPanel Margin="0,0,12,0">
-                        <TextBlock Text="Servidor MySQL" FontSize="12" Foreground="{StaticResource TextSecondaryBrush}" Margin="0,0,0,8"/>
-                        <Border Style="{StaticResource ModernInputStyle}">
-                            <TextBox Text="{Binding DbServer, UpdateSourceTrigger=PropertyChanged}" 
-                                     Background="Transparent" BorderThickness="0" Foreground="White" 
-                                     VerticalAlignment="Center" Margin="10,0" FontSize="13"/>
-                        </Border>
-                    </StackPanel>
-                    <StackPanel Grid.Column="1" Margin="12,0,0,0">
-                        <TextBlock Text="Nome do Banco" FontSize="12" Foreground="{StaticResource TextSecondaryBrush}" Margin="0,0,0,8"/>
-                        <Border Style="{StaticResource ModernInputStyle}">
-                            <TextBox Text="{Binding DbName, UpdateSourceTrigger=PropertyChanged}" 
-                                     Background="Transparent" BorderThickness="0" Foreground="White" 
-                                     VerticalAlignment="Center" Margin="10,0" FontSize="13"/>
-                        </Border>
-                    </StackPanel>
-                </Grid>
-            </Border>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel MaxWidth="800" HorizontalAlignment="Left" Width="Auto">
+                
+                <!-- SECTION TITLE -->
+                <TextBlock Text="Restauração de Backup" 
+                           FontSize="22" FontWeight="Bold" 
+                           Foreground="{StaticResource TextPrimaryBrush}" 
+                           Margin="0,0,0,4"/>
+                <TextBlock Text="Configuração inteligente de conexão e restauração MySQL." 
+                           FontSize="13" Foreground="{StaticResource TextSecondaryBrush}" 
+                           Margin="0,0,0,32"/>
+                
+                <!-- CONNECTION SETTINGS -->
+                <Border Style="{StaticResource ModernCardStyle}" Margin="0,0,0,20">
+                    <StackPanel>
+                        <TextBlock Text="Configurações do Servidor" FontSize="13" FontWeight="SemiBold" Foreground="{StaticResource TextPrimaryBrush}" Margin="0,0,0,16"/>
+                        
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <!-- Host -->
+                            <StackPanel Margin="0,0,8,0">
+                                <TextBlock Text="Servidor" FontSize="11" Foreground="{StaticResource TextMutedBrush}" Margin="0,0,0,6"/>
+                                <Border Style="{StaticResource ModernInputStyle}">
+                                    <TextBox Text="{Binding DbServer, UpdateSourceTrigger=PropertyChanged}" 
+                                             Background="Transparent" BorderThickness="0" Foreground="White" 
+                                             VerticalAlignment="Center" Margin="10,0" FontSize="12.5"/>
+                                </Border>
+                            </StackPanel>
 
-            <!-- ACTION AREA -->
-            <Border Style="{StaticResource ModernCardStyle}" Margin="0,0,0,24">
-                <StackPanel>
-                    <TextBlock Text="Ação" FontSize="13" FontWeight="SemiBold" Foreground="{StaticResource TextPrimaryBrush}" Margin="0,0,0,12"/>
-                    <Button Style="{StaticResource PrimaryButtonStyle}" 
-                            Content="SELECIONAR E RESTAURAR BACKUP" 
-                            Command="{Binding SelectAndRestoreCommand}"
-                            IsEnabled="{Binding IsProcessing, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter=Inverse}"/>
-                </StackPanel>
-            </Border>
+                            <!-- Port -->
+                            <StackPanel Grid.Column="1" Margin="8,0,8,0">
+                                <TextBlock Text="Porta" FontSize="11" Foreground="{StaticResource TextMutedBrush}" Margin="0,0,0,6"/>
+                                <Border Style="{StaticResource ModernInputStyle}">
+                                    <TextBox Text="{Binding DbPort, UpdateSourceTrigger=PropertyChanged}" 
+                                             Background="Transparent" BorderThickness="0" Foreground="White" 
+                                             VerticalAlignment="Center" Margin="10,0" FontSize="12.5"/>
+                                </Border>
+                            </StackPanel>
 
-            <!-- PROGRESS SECTION -->
-            <Border Style="{StaticResource ModernCardStyle}" Margin="0,0,0,24">
-                <StackPanel>
-                    <Grid Margin="0,0,0,12">
-                        <TextBlock Text="Progresso do Pipeline" FontSize="13" FontWeight="SemiBold" Foreground="{StaticResource TextPrimaryBrush}"/>
-                        <TextBlock Text="{Binding StatusMessage}" HorizontalAlignment="Right" FontSize="11" Foreground="{StaticResource TextMutedBrush}"/>
+                            <!-- User -->
+                            <StackPanel Grid.Column="2" Margin="8,0,8,0">
+                                <TextBlock Text="Usuário" FontSize="11" Foreground="{StaticResource TextMutedBrush}" Margin="0,0,0,6"/>
+                                <Border Style="{StaticResource ModernInputStyle}">
+                                    <TextBox Text="{Binding DbUser, UpdateSourceTrigger=PropertyChanged}" 
+                                             Background="Transparent" BorderThickness="0" Foreground="White" 
+                                             VerticalAlignment="Center" Margin="10,0" FontSize="12.5"/>
+                                </Border>
+                            </StackPanel>
+
+                            <!-- Password -->
+                            <StackPanel Grid.Column="3" Margin="8,0,0,0">
+                                <TextBlock Text="Senha" FontSize="11" Foreground="{StaticResource TextMutedBrush}" Margin="0,0,0,6"/>
+                                <Border Style="{StaticResource ModernInputStyle}">
+                                    <TextBox Text="{Binding DbPassword, UpdateSourceTrigger=PropertyChanged}" 
+                                             Background="Transparent" BorderThickness="0" Foreground="White" 
+                                             VerticalAlignment="Center" Margin="10,0" FontSize="12.5"/>
+                                </Border>
+                            </StackPanel>
+                        </Grid>
+
+                        <Button Style="{StaticResource PrimaryButtonStyle}" 
+                                Content="TESTAR CONEXÃO" 
+                                Margin="0,20,0,0"
+                                HorizontalAlignment="Right"
+                                Width="160"
+                                Command="{Binding TestConnectionCommand}"
+                                IsEnabled="{Binding IsTestingConnection, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter=Inverse}"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- DATABASE SELECTION -->
+                <Border Style="{StaticResource ModernCardStyle}" Margin="0,0,0,20" 
+                        Visibility="{Binding IsConnectionValid, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <StackPanel>
+                        <TextBlock Text="Seleção de Banco de Dados" FontSize="13" FontWeight="SemiBold" Foreground="{StaticResource TextPrimaryBrush}" Margin="0,0,0,16"/>
+                        
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <Border Style="{StaticResource ModernInputStyle}">
+                                <ComboBox ItemsSource="{Binding Databases}" 
+                                          SelectedItem="{Binding SelectedDatabase}"
+                                          Background="Transparent" BorderThickness="0" Foreground="White" 
+                                          VerticalAlignment="Center" Margin="5,0"/>
+                            </Border>
+
+                            <!-- Inline Create New -->
+                            <Grid Grid.Column="1" Visibility="{Binding IsCreatingNewDatabase, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="12,0,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="200"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Border Style="{StaticResource ModernInputStyle}">
+                                    <TextBox Text="{Binding NewDatabaseName, UpdateSourceTrigger=PropertyChanged}" 
+                                             Tag="Nome do novo banco..."
+                                             Background="Transparent" BorderThickness="0" Foreground="White" 
+                                             VerticalAlignment="Center" Margin="10,0" FontSize="12.5"/>
+                                </Border>
+                                <Button Grid.Column="1" Style="{StaticResource PrimaryButtonStyle}" 
+                                        Content="CRIAR" Margin="8,0,0,0" Width="80"
+                                        Command="{Binding CreateDatabaseCommand}"/>
+                            </Grid>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+
+                <!-- ACTION AREA -->
+                <Border Style="{StaticResource ModernCardStyle}" Margin="0,0,0,20"
+                        Visibility="{Binding IsConnectionValid, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <StackPanel>
+                        <TextBlock Text="Arquivo de Backup" FontSize="13" FontWeight="SemiBold" Foreground="{StaticResource TextPrimaryBrush}" Margin="0,0,0,12"/>
+                        
+                        <Grid Margin="0,0,0,16">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <Border Style="{StaticResource ModernInputStyle}">
+                                <Grid>
+                                    <!-- Placeholder -->
+                                    <TextBlock Text="Nenhum arquivo selecionado..." 
+                                               VerticalAlignment="Center" Margin="12,0"
+                                               Foreground="{StaticResource TextMutedBrush}" FontSize="12.5"
+                                               Visibility="{Binding IsFileSelected, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter=Inverse}"/>
+                                    
+                                    <!-- File Info -->
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="12,0"
+                                                Visibility="{Binding IsFileSelected, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                        <TextBlock Text="{Binding SelectedFile.FileName}" Foreground="{StaticResource TextPrimaryBrush}" FontWeight="SemiBold" FontSize="12.5"/>
+                                        <TextBlock Text=" • " Foreground="{StaticResource TextMutedBrush}"/>
+                                        <TextBlock Text="{Binding SelectedFile.FormattedSize}" Foreground="{StaticResource TextSecondaryBrush}" FontSize="11.5"/>
+                                        <TextBlock Text=" • " Foreground="{StaticResource AccentBrush}" FontWeight="Bold" FontSize="11"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                            
+                            <Button Grid.Column="1" Style="{StaticResource PrimaryButtonStyle}" 
+                                    Content="PROCURAR" Margin="12,0,0,0" Width="100"
+                                    Command="{Binding SelectAndRestoreCommand}"
+                                    IsEnabled="{Binding IsProcessing, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter=Inverse}"/>
+                        </Grid>
+                        
+                        <Button Style="{StaticResource PrimaryButtonStyle}" 
+                                Content="INICIAR RESTAURAÇÃO COMPLETA" 
+                                Height="40"
+                                Visibility="{Binding IsFileSelected, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                Command="{Binding SelectAndRestoreCommand}" 
+                                IsEnabled="{Binding IsProcessing, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter=Inverse}"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- PROGRESS SECTION -->
+                <Border Style="{StaticResource ModernCardStyle}" Margin="0,0,0,20">
+                    <StackPanel>
+                        <Grid Margin="0,0,0,12">
+                            <TextBlock Text="Progresso do Pipeline" FontSize="13" FontWeight="SemiBold" Foreground="{StaticResource TextPrimaryBrush}"/>
+                            <TextBlock Text="{Binding StatusMessage}" HorizontalAlignment="Right" FontSize="11" Foreground="{StaticResource TextMutedBrush}"/>
+                        </Grid>
+                        <ProgressBar Style="{StaticResource ModernProgressStyle}" Value="{Binding OperationProgress}" Margin="0,0,0,8"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- LOGS SECTION -->
+                <Border Style="{StaticResource ModernCardStyle}" Height="200" VerticalAlignment="Stretch">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Text="Logs de Execução" FontSize="13" FontWeight="SemiBold" Foreground="{StaticResource TextPrimaryBrush}" Margin="0,0,0,12"/>
+                        <Border Grid.Row="1" Background="#0A000000" CornerRadius="4" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1">
+                            <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="12">
+                                <ItemsControl ItemsSource="{Binding Logs}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding}" Style="{StaticResource LogTextStyle}"/>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </ScrollViewer>
+                        </Border>
                     </Grid>
-                    
-                    <ProgressBar Style="{StaticResource ModernProgressStyle}" Value="{Binding OperationProgress}" Margin="0,0,0,8"/>
-                </StackPanel>
-            </Border>
+                </Border>
 
-            <!-- LOGS SECTION -->
-            <Border Style="{StaticResource ModernCardStyle}" Height="220" VerticalAlignment="Stretch">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    
-                    <TextBlock Grid.Row="0" Text="Logs de Execução" FontSize="13" FontWeight="SemiBold" Foreground="{StaticResource TextPrimaryBrush}" Margin="0,0,0,12"/>
-                    
-                    <Border Grid.Row="1" Background="#0A000000" CornerRadius="4" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1">
-                        <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="12" x:Name="LogScrollViewer">
-                            <ItemsControl ItemsSource="{Binding Logs}">
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding}" Style="{StaticResource LogTextStyle}"/>
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                            </ItemsControl>
-                        </ScrollViewer>
-                    </Border>
-                </Grid>
-            </Border>
-
-        </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </UserControl>

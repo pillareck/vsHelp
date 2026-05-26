@@ -14,6 +14,12 @@ public partial class MainViewModel : ObservableObject
     [ObservableProperty]
     private string _title = "vsHelp";
 
+    [ObservableProperty]
+    private string _connectionStatusText = "Aguardando conexão";
+
+    [ObservableProperty]
+    private bool _isConnected;
+
     public MainViewModel()
     {
         NavigateToRestoreBackup();
@@ -22,7 +28,7 @@ public partial class MainViewModel : ObservableObject
     [RelayCommand]
     private void NavigateToRestoreBackup()
     {
-        CurrentView = new HomeViewModel();
+        CurrentView = new HomeViewModel(this);
         CurrentViewName = "Restaurar Backup";
     }
 
@@ -52,6 +58,12 @@ public partial class MainViewModel : ObservableObject
     {
         CurrentView = new SettingsViewModel();
         CurrentViewName = "Configurações";
+    }
+
+    public void UpdateConnectionStatus(string server, string database)
+    {
+        IsConnected = !string.IsNullOrEmpty(database);
+        ConnectionStatusText = IsConnected ? $"{server} • {database}" : $"{server} • Selecione um banco";
     }
 }
 
